@@ -97,7 +97,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hInstancePrev, LPSTR lpCmdLine
 	{//情報が無いとき
 
 		//マネージャーの生成
-		pManager = new CManager;
+		pManager = CManager::GetManager();
 	}
 
 	if (pManager != NULL)

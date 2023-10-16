@@ -94,22 +94,22 @@ void CPlayerX::Draw(void)
 void CPlayerX::Controller(void)
 {
 	//デバッグ情報取得
-	CDebugProc *pDebug = CManager::GetDebugProc();
+	CDebugProc *pDebug = CManager::GetManager()->GetDebugProc();
 
 	//カメラ情報取得
 	D3DXVECTOR3 RotCamera = CCamera::GetRotCamera();
 
 	//キーボードへのポインタ取得
-	CInputKeyboard *pInputKeyboard = CManager::GetInputKeyboard();
+	CInputKeyboard *pInputKeyboard = CManager::GetManager()->GetInputKeyboard();
 
 	//コントローラーへのポインタ取得
-	CInputController *pInputController = CManager::GetInputController();
+	CInputController *pInputController = CManager::GetManager()->GetInputController();
 
 	//カメラ情報取得
 	D3DXVECTOR3 CameraRot = CCamera::GetRotCamera();
 
 	//サウンド情報取得
-	CSound *pSound = CManager::GetSound();
+	CSound *pSound = CManager::GetManager()->GetSound();
 
 	//向き取得処理
 	D3DXVECTOR3 rot = CObjectX::GetRot();
@@ -256,12 +256,12 @@ CPlayerX *CPlayerX::Create(void)
 void CPlayerX::CollisionBuilding(void)
 {
 	//デバッグ情報取得
-	CDebugProc *pDebug = CManager::GetDebugProc();
+	CDebugProc *pDebug = CManager::GetManager()->GetDebugProc();
 
 	CObject *pObj;
 
 	//サウンド情報取得
-	CSound *pSound = CManager::GetSound();
+	CSound *pSound = CManager::GetManager()->GetSound();
 
 	//プレイヤーの位置情報取得
 	D3DXVECTOR3 PlayerPos = GetPosition();

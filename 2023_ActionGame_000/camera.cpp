@@ -85,13 +85,13 @@ void CCamera::Uninit(void)
 void CCamera::Update(void)
 {
 	//キーボードへのポインタ取得
-	CInputKeyboard *pInputKeyboard = CManager::GetInputKeyboard();
+	CInputKeyboard *pInputKeyboard = CManager::GetManager()->GetInputKeyboard();
 
 	//コントローラーへのポインタを取得
-	CInputController *pInputController = CManager::GetInputController();
+	CInputController *pInputController = CManager::GetManager()->GetInputController();
 
 	//デバッグ情報取得
-	CDebugProc *pDebug = CManager::GetDebugProc();
+	CDebugProc *pDebug = CManager::GetManager()->GetDebugProc();
 
 	if (pInputKeyboard->GetPress(DIK_X) == true)
 	{//Y座標上
@@ -201,7 +201,7 @@ void CCamera::Update(void)
 void CCamera::SetCamera(void)
 {
 	//オブジェクト取得
-	CRenderer *pRenderer = CManager::GetRenderer();
+	CRenderer *pRenderer = CManager::GetManager()->GetRenderer();
 
 	//デバイス取得
 	LPDIRECT3DDEVICE9 pDevice = pRenderer->GetDevice();

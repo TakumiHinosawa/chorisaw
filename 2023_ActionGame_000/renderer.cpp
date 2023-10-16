@@ -167,7 +167,7 @@ void CRenderer::Draw(void)
 		m_pD3DDevice->Clear(0, NULL,D3DCLEAR_ZBUFFER,D3DCOLOR_RGBA(0, 0, 0, 0), 1.0f, 0);
 
 		{
-			if (CManager::GetMode() == CScene::MODE_GAME)
+			if (CManager::GetManager()->GetMode() == CScene::MODE_GAME)
 			{
 				//カメラ情報取得
 				CCamera *pCamera = CGame::GetCamera();
@@ -180,7 +180,7 @@ void CRenderer::Draw(void)
 
 		{
 			//デバッグ情報取得
-			CDebugProc *pDebug = CManager::GetDebugProc();
+			CDebugProc *pDebug = CManager::GetManager()->GetDebugProc();
 
 			if (pDebug != NULL)
 			{//使用されていたら

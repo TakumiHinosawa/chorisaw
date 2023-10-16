@@ -68,21 +68,23 @@ public:
 	void Update(void);
 	void Draw(void);
 
-	static CRenderer *GetRenderer(void);
-	static CInputKeyboard *GetInputKeyboard(void);
-	static CInputController *GetInputController(void);
-	static CSound *GetSound(void);
-	static CDebugProc *GetDebugProc(void);
-	static void SetMode(CScene::MODE mode);
-	static CScene::MODE GetMode(void);
+	CRenderer *GetRenderer(void);
+	CInputKeyboard *GetInputKeyboard(void);
+	CInputController *GetInputController(void);
+	CSound *GetSound(void);
+	CDebugProc *GetDebugProc(void);
+	void SetMode(CScene::MODE mode);
+	CScene::MODE GetMode(void);
+	static CManager *GetManager(void);
 
 private:
-	static CRenderer *m_pRenderer;
-	static CInputKeyboard *m_pInputKeyboard;
-	static CInputController *m_pInputController;
-	static CSound *m_pSound;
-	static CDebugProc *m_pDebugProc;
-	static CScene *m_pScene;
+	CRenderer *m_pRenderer;
+	CInputKeyboard *m_pInputKeyboard;
+	CInputController *m_pInputController;
+	CSound *m_pSound;
+	CDebugProc *m_pDebugProc;
+	CScene *m_pScene;
+	static CManager *m_pManager;
 };
 
 #endif

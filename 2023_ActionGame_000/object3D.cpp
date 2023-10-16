@@ -45,7 +45,7 @@ HRESULT CObject3D::Init(void)
 	VERTEX_3D *pVtx;
 
 	//オブジェクト取得
-	CRenderer *pRenderer = CManager::GetRenderer();
+	CRenderer *pRenderer = CManager::GetManager()->GetRenderer();
 
 	//デバイス取得
 	LPDIRECT3DDEVICE9 pDevice = pRenderer->GetDevice();
@@ -134,7 +134,7 @@ void CObject3D::Update(void)
 void CObject3D::Draw(void)
 {
 	//オブジェクト取得
-	CRenderer *pRenderer = CManager::GetRenderer();
+	CRenderer *pRenderer = CManager::GetManager()->GetRenderer();
 
 	//デバイス取得
 	LPDIRECT3DDEVICE9 pDevice = pRenderer->GetDevice();
@@ -175,7 +175,7 @@ void CObject3D::Draw(void)
 void CObject3D::Set(D3DXVECTOR3 pos, D3DXVECTOR3 rot, float fHeight, float fWidth)
 {
 	//オブジェクト取得
-	CRenderer *pRenderer = CManager::GetRenderer();
+	CRenderer *pRenderer = CManager::GetManager()->GetRenderer();
 
 	//デバイス取得
 	LPDIRECT3DDEVICE9 pDevice = pRenderer->GetDevice();
@@ -216,7 +216,7 @@ void CObject3D::Set(D3DXVECTOR3 pos, D3DXVECTOR3 rot, float fHeight, float fWidt
 void CObject3D::SetWall(D3DXVECTOR3 pos, D3DXVECTOR3 rot, float fHeight, float fWidth, int nType)
 {
 	//オブジェクト取得
-	CRenderer *pRenderer = CManager::GetRenderer();
+	CRenderer *pRenderer = CManager::GetManager()->GetRenderer();
 
 	//デバイス取得
 	LPDIRECT3DDEVICE9 pDevice = pRenderer->GetDevice();

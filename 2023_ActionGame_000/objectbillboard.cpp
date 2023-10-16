@@ -46,7 +46,7 @@ CObjectBillboard::~CObjectBillboard()
 HRESULT CObjectBillboard::Init(void)
 {
 	//オブジェクト取得
-	CRenderer *pRenderer = CManager::GetRenderer();
+	CRenderer *pRenderer = CManager::GetManager()->GetRenderer();
 
 	//デバイス取得
 	LPDIRECT3DDEVICE9 pDevice = pRenderer->GetDevice();
@@ -137,7 +137,7 @@ void CObjectBillboard::Update(void)
 void CObjectBillboard::Draw(void)
 {
 	//オブジェクト取得
-	CRenderer *pRenderer = CManager::GetRenderer();
+	CRenderer *pRenderer = CManager::GetManager()->GetRenderer();
 
 	//デバイス取得
 	LPDIRECT3DDEVICE9 pDevice = pRenderer->GetDevice();

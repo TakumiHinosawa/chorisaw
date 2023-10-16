@@ -92,12 +92,12 @@ void CResult::Uninit(void)
 void CResult::Update(void)
 {
 	//キーボードの取得
-	CInputKeyboard *pInputKeyboard = CManager::GetInputKeyboard();
+	CInputKeyboard *pInputKeyboard = CManager::GetManager()->GetInputKeyboard();
 
 	if (pInputKeyboard->GetTrigger(DIK_RETURN) == true)
 	{
 		//画面遷移
-		CManager::SetMode(CScene::MODE_TITLE);
+		CManager::GetManager()->SetMode(CScene::MODE_TITLE);
 	}
 }
 

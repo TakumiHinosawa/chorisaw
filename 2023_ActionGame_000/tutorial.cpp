@@ -81,12 +81,12 @@ void CTutorial::Uninit(void)
 void CTutorial::Update(void)
 {
 	//キーボードの取得
-	CInputKeyboard *pInputKeyboard = CManager::GetInputKeyboard();
+	CInputKeyboard *pInputKeyboard = CManager::GetManager()->GetInputKeyboard();
 
 	if (pInputKeyboard->GetTrigger(DIK_RETURN) == true)
 	{
 		//画面遷移
-		CManager::SetMode(CScene::MODE_GAME);
+		CManager::GetManager()->SetMode(CScene::MODE_GAME);
 	}
 }
 

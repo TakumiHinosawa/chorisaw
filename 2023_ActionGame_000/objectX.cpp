@@ -53,7 +53,7 @@ CObjectX::~CObjectX()
 HRESULT CObjectX::Init(void)
 {
 	//オブジェクト情報取得
-	CRenderer *pRenderer = CManager::GetRenderer();
+	CRenderer *pRenderer = CManager::GetManager()->GetRenderer();
 
 	//デバイス情報取得
 	LPDIRECT3DDEVICE9 pDevice = pRenderer->GetDevice();
@@ -162,7 +162,7 @@ HRESULT CObjectX::Init(void)
 HRESULT CObjectX::Init(char *pFilename)
 {
 	//オブジェクト情報取得
-	CRenderer *pRenderer = CManager::GetRenderer();
+	CRenderer *pRenderer = CManager::GetManager()->GetRenderer();
 
 	//デバイス情報取得
 	LPDIRECT3DDEVICE9 pDevice = pRenderer->GetDevice();
@@ -329,7 +329,7 @@ void CObjectX::Update(void)
 void CObjectX::Draw(void)
 {
 	//オブジェクト取得
-	CRenderer *pRenderer = CManager::GetRenderer();
+	CRenderer *pRenderer = CManager::GetManager()->GetRenderer();
 
 	//デバイス取得
 	LPDIRECT3DDEVICE9 pDevice = pRenderer->GetDevice();
@@ -413,7 +413,7 @@ CObjectX *CObjectX::Create(char *pFilename)
 void CObjectX::ReloadObject(char *pFilename)
 {
 	//オブジェクト情報取得
-	CRenderer *pRenderer = CManager::GetRenderer();
+	CRenderer *pRenderer = CManager::GetManager()->GetRenderer();
 
 	//デバイス情報取得
 	LPDIRECT3DDEVICE9 pDevice = pRenderer->GetDevice();

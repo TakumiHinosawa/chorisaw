@@ -55,7 +55,7 @@ CGame::~CGame()
 HRESULT CGame::Init(void)
 {
 	//サウンド情報取得
-	CSound *pSound = CManager::GetSound();
+	CSound *pSound = CManager::GetManager()->GetSound();
 
 	//********************************************************
 	//カメラの生成
@@ -326,12 +326,12 @@ void CGame::Update(void)
 	}
 
 	//キーボードの取得
-	CInputKeyboard *pInputKeyboard = CManager::GetInputKeyboard();
+	CInputKeyboard *pInputKeyboard = CManager::GetManager()->GetInputKeyboard();
 
 	if (pInputKeyboard->GetTrigger(DIK_RETURN) == true)
 	{
 		//画面遷移
-		CManager::SetMode(CScene::MODE_RESULT);
+		CManager::GetManager()->SetMode(CScene::MODE_RESULT);
 
 		if (m_pScore != NULL)
 		{//使用されていたら

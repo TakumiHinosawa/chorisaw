@@ -88,7 +88,7 @@ void CTime::Update(void)
 	{// 0ˆÈ‰º
 
 		// ƒŠƒUƒ‹ƒg‚Ö‘JˆÚ
-		CManager::SetMode(CScene::MODE_RESULT);
+		CManager::GetManager()->SetMode(CScene::MODE_RESULT);
 	}
 }
 

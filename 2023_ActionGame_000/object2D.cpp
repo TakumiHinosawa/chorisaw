@@ -46,7 +46,7 @@ CObject2D::~CObject2D()
 HRESULT CObject2D::Init(void)
 {
 	//オブジェクト取得
-	CRenderer *pRenderer = CManager::GetRenderer();
+	CRenderer *pRenderer = CManager::GetManager()->GetRenderer();
 
 	//デバイス取得
 	LPDIRECT3DDEVICE9 pDevice = pRenderer->GetDevice();
@@ -126,7 +126,7 @@ void CObject2D::Update(void)
 void CObject2D::Draw(void)
 {
 	//オブジェクト取得
-	CRenderer *pRenderer = CManager::GetRenderer();
+	CRenderer *pRenderer = CManager::GetManager()->GetRenderer();
 
 	//デバイス取得
 	LPDIRECT3DDEVICE9 pDevice = pRenderer->GetDevice();

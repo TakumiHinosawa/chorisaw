@@ -24,19 +24,19 @@
 //*****************************************************************************************
 //静的メンバ変数
 //*****************************************************************************************
-CRenderer *CManager::m_pRenderer = NULL;
-CInputKeyboard *CManager::m_pInputKeyboard = NULL;
-CInputController *CManager::m_pInputController = NULL;
-CSound *CManager::m_pSound = NULL;
-CDebugProc *CManager::m_pDebugProc = NULL;
-CScene *CManager::m_pScene = NULL;
+CManager *CManager::m_pManager = NULL;
 
 //=========================================================================================
 //マネージャーコンストラクタ
 //=========================================================================================
 CManager::CManager()
 {
-
+	m_pDebugProc = NULL;
+	m_pInputController = NULL;
+	m_pInputKeyboard = NULL;
+	m_pRenderer = NULL;
+	m_pScene = NULL;
+	m_pSound = NULL;
 }
 
 //=========================================================================================
@@ -440,6 +440,23 @@ void CManager::SetMode(CScene::MODE mode)
 
 		//モード設定
 		m_pScene->SetMode(mode);
+	}
+}
+
+//=========================================================================================
+//マネージャーの取得処理
+//=========================================================================================
+CManager *CManager::GetManager(void)
+{
+	if (m_pManager == NULL)
+	{// 使用されているとき
+
+		return m_pManager = new CManager;
+	}
+	else
+	{// 使用されていないとき
+
+		return m_pManager;
 	}
 }
 
