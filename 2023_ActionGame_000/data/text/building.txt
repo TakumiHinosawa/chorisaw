@@ -1,0 +1,11 @@
+start
+	
+	
+	start_building
+
+		POS  -0.0 -200.0 0.0
+
+	end_building
+	
+		
+end
