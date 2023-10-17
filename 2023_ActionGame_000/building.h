@@ -21,10 +21,11 @@ class CBuilding : public CObjectX
 public:
 	typedef enum
 	{
-		TYPE_NORMAL = 0,	//•’Ê‚Ì‘«ê
-		TYPE_THIN,			//×‚¢‘«ê
-		TYPE_WALL,			//•Ç
-		TYPE_WALLPAPER,		//•ÇŽ†
+		TYPE_NORMAL = 0,	// •’Ê‚Ì‘«ê
+		TYPE_THIN,			// ×‚¢‘«ê
+		TYPE_WALL,			// •Ç
+		TYPE_WALLPAPER,		// •ÇŽ†
+		TYPE_SKY,			// ‹ó
 		TYPE_MAX
 	}TYPE;
 

@@ -110,38 +110,46 @@ HRESULT CGame::Init(void)
 	//建物 配置
 	//********************************************************
 
-	//構造体定義
+	//建物配置の構造体定義
 	struct SBuildingInfo
 	{
 		CBuilding::TYPE mType;
 		float mX;
 		float mY;
+		float mZ;
 	};
 
 	SBuildingInfo buildingInfo[] =
 	{
-		{ CBuilding::TYPE_NORMAL, 70.0f + 0 * 500.0f,-120.0f },
-		{ CBuilding::TYPE_NORMAL, 70.0f + 1 * 500.0f,-120.0f },
-		{ CBuilding::TYPE_NORMAL, 70.0f + 2 * 500.0f,-120.0f },
-		{ CBuilding::TYPE_NORMAL, 70.0f + 3 * 500.0f,-120.0f },
-		{ CBuilding::TYPE_NORMAL, 2000.0f,100.0f },
-		{ CBuilding::TYPE_NORMAL, 2700.0f,0.0f },
-		{ CBuilding::TYPE_NORMAL, 3300.0f,-100.0f },
-		{ CBuilding::TYPE_NORMAL, 3800.0f,100.0f },
-		{ CBuilding::TYPE_NORMAL, 4000.0f,0.0f },
-		{ CBuilding::TYPE_NORMAL, 4500.0f,100.0f },
-		{ CBuilding::TYPE_NORMAL, 5100.0f,-100.0f },
-		{ CBuilding::TYPE_NORMAL, 5600.0f,0.0f },
-		{ CBuilding::TYPE_NORMAL, 6100.0f,-50.0f },
-		{ CBuilding::TYPE_NORMAL, 6600.0f,120.0f },
-		{ CBuilding::TYPE_NORMAL, 7000.0f,200.0f },
-		{ CBuilding::TYPE_WALL, 7400.0f,-80.0f },
-		{ CBuilding::TYPE_NORMAL, 7200.0f,-80.0f },
-		{ CBuilding::TYPE_NORMAL, 7600.0f,-80.0f },
-		{ CBuilding::TYPE_NORMAL, 7900.0f,120.0f },
-		{ CBuilding::TYPE_NORMAL, 8050.0f,50.0f },
-		{ CBuilding::TYPE_NORMAL, 8550.0f,0.0f },
-		{ CBuilding::TYPE_NORMAL, 9150.0f,-100.0f },
+		{ CBuilding::TYPE_NORMAL, 70.0f + 0 * 500.0f,-120.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 70.0f + 1 * 500.0f,-120.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 70.0f + 2 * 500.0f,-120.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 70.0f + 3 * 500.0f,-120.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 2000.0f,100.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 2700.0f,0.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 3300.0f,-100.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 3600.0f,100.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 4000.0f,0.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 4500.0f,100.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 5100.0f,-100.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 5600.0f,0.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 6100.0f,-50.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 6600.0f,120.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 7000.0f,200.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 7200.0f,-80.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 7600.0f,-80.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 7900.0f,120.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 8350.0f,100.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 8450.0f,80.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 8550.0f,60.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 8650.0f,40.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 8750.0f,20.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 9250.0f,20.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 9550.0f,80.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 9850.0f,20.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 10150.0f,80.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 10450.0f,20.0f,0.0f },
+
 	};
 
 	for (int nCnt = 0; nCnt < NUM_BUILD; nCnt++)
@@ -152,7 +160,7 @@ HRESULT CGame::Init(void)
 			//プレイヤー作成
 			m_apBuilding[nCnt] = CBuilding::Create();
 			m_apBuilding[nCnt]->SetType(buildingInfo[nCnt].mType);
-			m_apBuilding[nCnt]->SetPosition(D3DXVECTOR3(buildingInfo[nCnt].mX, buildingInfo[nCnt].mY, 0.0f));
+			m_apBuilding[nCnt]->SetPosition(D3DXVECTOR3(buildingInfo[nCnt].mX, buildingInfo[nCnt].mY, buildingInfo[nCnt].mZ));
 		}
 	}
 

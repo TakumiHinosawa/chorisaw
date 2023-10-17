@@ -117,6 +117,10 @@ void CBuilding::SetType(TYPE type)
 	case TYPE_WALLPAPER:
 		CObjectX::ReloadObject("data\\MODEL\\wallpaper.x");
 		break;
+
+	case TYPE_SKY:
+		CObjectX::ReloadObject("data\\MODEL\\sky.x");
+		break;
 	}
 }
 
