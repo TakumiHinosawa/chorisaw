@@ -149,7 +149,12 @@ HRESULT CGame::Init(void)
 		{ CBuilding::TYPE_THIN, 9850.0f,20.0f,0.0f },
 		{ CBuilding::TYPE_THIN, 10150.0f,80.0f,0.0f },
 		{ CBuilding::TYPE_THIN, 10450.0f,20.0f,0.0f },
-
+		{ CBuilding::TYPE_NORMAL, 11000.0f,0.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 11600.0f,70.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 12000.0f,120.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 12600.0f,200.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 13000.0f,250.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 13500.0f,300.0f,0.0f },
 	};
 
 	for (int nCnt = 0; nCnt < NUM_BUILD; nCnt++)
@@ -346,6 +351,9 @@ void CGame::Update(void)
 
 			// スコアの更新 ( 停止 )
 			m_pScore->AddScore(0);
+
+			//スコアの保存
+			m_pScore->SaveScore();
 		}
 	}
 }

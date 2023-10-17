@@ -41,6 +41,7 @@ public:
 	void AddScore(int nValue);
 	void SubScore(int nValue);
 	int GetScore(void);
+	void SaveScore(void);
 
 private:
 	int m_nScore;						//ÉXÉRÉA

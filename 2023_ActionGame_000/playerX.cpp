@@ -19,7 +19,7 @@
 //マクロ定義
 //=========================================================================================
 #define GRAVITY	(0.8f)			//重力
-#define MOVE_PLAYER	(0.80f)		//移動量
+#define MOVE_PLAYER	(0.8f)		//移動量
 #define JUMPHEIGHT (16.0f)		//ジャンプ力
 #define AIRBORNE (20)			//浮遊時間
 #define ROTSPEED (0.7f)			//回転速度
