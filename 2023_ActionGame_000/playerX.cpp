@@ -143,6 +143,10 @@ void CPlayerX::Controller(void)
 
 		//ジャンプ上昇状態に遷移
 		m_JumpState = PLAYERJUMP_UP;
+
+		//ジャンプ音
+		
+		pSound->PlaySound(CSound::SOUND_LABEL_SE_JUMP);
 	}
 	else if (pInputKeyboard->GetTrigger(DIK_SPACE) == true && m_nJumpCtr >= 1)
 	{//任意のキーが押されたとき
@@ -155,6 +159,9 @@ void CPlayerX::Controller(void)
 
 		//ジャンプ上昇状態に遷移
 		m_JumpState = PLAYERJUMP_UP;
+
+		//ジャンプ音
+		pSound->PlaySound(CSound::SOUND_LABEL_SE_JUMP);
 	}
 	if (m_JumpState == PLAYERJUMP_UP)
 	{//ジャンプ中の時

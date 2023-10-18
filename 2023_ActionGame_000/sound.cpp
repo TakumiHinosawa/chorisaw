@@ -13,7 +13,7 @@
 CSound::SOUNDINFO m_aSoundInfo[CSound::SOUND_LABEL_MAX] =
 {
 	{ "data/BGM/16.wav", -1 },					//ゲーム
-	{ "data/SE/short_bomb.wav" , 0},			//射撃
+	{ "data/SE/se_jump_012.wav" , 0},			//ジャンプ
 	{ "data/SE/explosion.wav" ,0},				//爆発
 	{"data/SE/damage.wav" ,0},					//ダメージ
 	{"data/SE/garo_se05_gzanbaken.wav" ,0},		//当選
@@ -216,8 +216,10 @@ HRESULT CSound::PlaySound(SOUND_LABEL label)
 
 	// 状態取得
 	m_apSourceVoice[label]->GetState(&xa2state);
+
 	if(xa2state.BuffersQueued != 0)
 	{// 再生中
+
 		// 一時停止
 		m_apSourceVoice[label]->Stop(0);
 
