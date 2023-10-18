@@ -121,10 +121,10 @@ HRESULT CGame::Init(void)
 
 	SBuildingInfo buildingInfo[] =
 	{
-		{ CBuilding::TYPE_NORMAL, 70.0f + 0 * 500.0f,-120.0f,0.0f },
-		{ CBuilding::TYPE_NORMAL, 70.0f + 1 * 500.0f,-120.0f,0.0f },
-		{ CBuilding::TYPE_NORMAL, 70.0f + 2 * 500.0f,-120.0f,0.0f },
-		{ CBuilding::TYPE_NORMAL, 70.0f + 3 * 500.0f,-120.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 70.0f,-120.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 570.0f,-120.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 1070.0f,-120.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 1570.0f,-120.0f,0.0f },
 		{ CBuilding::TYPE_NORMAL, 2000.0f,100.0f,0.0f },
 		{ CBuilding::TYPE_NORMAL, 2700.0f,0.0f,0.0f },
 		{ CBuilding::TYPE_NORMAL, 3300.0f,-100.0f,0.0f },
