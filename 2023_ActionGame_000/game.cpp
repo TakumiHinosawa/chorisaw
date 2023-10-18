@@ -121,6 +121,11 @@ HRESULT CGame::Init(void)
 
 	SBuildingInfo buildingInfo[] =
 	{
+		{ CBuilding::TYPE_WALLPAPER, 2200.0f,0.0f,80.0f },
+		{ CBuilding::TYPE_WALLPAPER, 5500.0f,0.0f,80.0f },
+		{ CBuilding::TYPE_WALLPAPER, 8800.0f,0.0f,80.0f },
+		{ CBuilding::TYPE_WALLPAPER, 11100.0f,0.0f,80.0f },
+		{ CBuilding::TYPE_WALLPAPER, 14400.0f,0.0f,80.0f },
 		{ CBuilding::TYPE_NORMAL, 70.0f,-120.0f,0.0f },
 		{ CBuilding::TYPE_NORMAL, 570.0f,-120.0f,0.0f },
 		{ CBuilding::TYPE_NORMAL, 1070.0f,-120.0f,0.0f },
@@ -153,7 +158,7 @@ HRESULT CGame::Init(void)
 		{ CBuilding::TYPE_NORMAL, 11600.0f,70.0f,0.0f },
 		{ CBuilding::TYPE_THIN, 12000.0f,120.0f,0.0f },
 		{ CBuilding::TYPE_NORMAL, 12600.0f,200.0f,0.0f },
-		{ CBuilding::TYPE_NORMAL, 13000.0f,250.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 13000.0f,250.0f,0.0f },
 		{ CBuilding::TYPE_NORMAL, 13500.0f,300.0f,0.0f },
 	};
 
