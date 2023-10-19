@@ -8,6 +8,8 @@
 #include "objectX.h"
 #include "manager.h"
 #include "renderer.h"
+#include "debugproc.h"
+#include "input.h"
 
 //*****************************************************************************************
 //マクロ定義
@@ -37,6 +39,8 @@ CObjectX::CObjectX()
 	m_nNumVtx = 0;		
 	m_dwSizeFVF = 0;	
 	m_pVtxBuff = NULL;		
+
+	bUse = false;
 }
 	
 //=========================================================================================
@@ -172,6 +176,8 @@ HRESULT CObjectX::Init(char *pFilename)
 
 	//過去の位置を保存
 	m_posOld = m_pos;
+
+	bUse = false;
 
 	//Xファイルの読み込み
 	D3DXLoadMeshFromX(pFilename,
@@ -321,6 +327,21 @@ void CObjectX::Update(void)
 {
 	//現在の位置を保存
 	m_posOld = m_pos;
+
+	m_rot.y -= 0.01f;
+
+	//キーボードの取得
+	CInputKeyboard *pInputKeyboard = CManager::GetManager()->GetInputKeyboard();
+
+	if (pInputKeyboard->GetTrigger(DIK_SPACE) == true)
+	{
+		bUse = true;
+	}
+	if (bUse == true)
+	{
+		m_rot.y -= 0.46f;
+		m_pos.y += 0.75f;
+	}
 }
 
 //=========================================================================================

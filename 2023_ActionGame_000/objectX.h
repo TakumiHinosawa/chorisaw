@@ -79,6 +79,7 @@ private:
 	int m_nNumVtx;		//頂点数
 	DWORD m_dwSizeFVF;	//頂点フォーマットのサイズ
 	BYTE *m_pVtxBuff;		//頂点バッファのポインタ
+	bool bUse;
 };
 
 #endif

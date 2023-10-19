@@ -12,6 +12,8 @@
 //*****************************************************************************************
 class CModeImage;
 class CCamera;
+class CObjectX;
+class CLight;
 
 //*****************************************************************************************
 //インクルード
@@ -36,6 +38,11 @@ public:
 
 private:
 	CModeImage *m_pModeImage;
+	CCamera *m_pCamera;
+	CObjectX *m_pObjectX;
+	CLight *m_pLight;
+	int m_nCtr;
+	bool bUse;
 };
 
 #endif

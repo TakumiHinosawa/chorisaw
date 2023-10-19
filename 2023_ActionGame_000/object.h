@@ -53,7 +53,6 @@ public:
 	virtual void SetVtxMin(D3DXVECTOR3 vtxMin);
 	virtual D3DXVECTOR3 GetVtxMin(void);
 
-	//virtual void SetColor(void);
 
 	virtual void Hit(void);
 

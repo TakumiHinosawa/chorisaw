@@ -83,7 +83,7 @@ void CTutorial::Update(void)
 	//キーボードの取得
 	CInputKeyboard *pInputKeyboard = CManager::GetManager()->GetInputKeyboard();
 
-	if (pInputKeyboard->GetTrigger(DIK_RETURN) == true)
+	if (pInputKeyboard->GetTrigger(DIK_SPACE) == true)
 	{
 		//画面遷移
 		CManager::GetManager()->SetMode(CScene::MODE_GAME);
