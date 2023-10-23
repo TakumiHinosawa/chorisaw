@@ -27,13 +27,17 @@ CRanking::CRanking()
 	m_nCounter = 0;		
 	m_nCtr = 0;
 
-	for (int nCnt = 0; nCnt < NUM_LINE; nCnt++)
+	for (int nCntLine = 0; nCntLine < NUM_LINE; nCntLine++)
 	{
-		m_aData[nCnt] = 0;
+		m_aData[nCntLine] = 0;
 	}
-	for (int nCnt = 0; nCnt < NUM_PLACE; nCnt++)
+
+	for (int nCntLine = 0; nCntLine < NUM_LINE; nCntLine++)
 	{
-		m_apNumber[nCnt] = 0;
+		for (int nCntPlace = 0; nCntPlace < NUM_PLACE; nCntPlace++)
+		{
+			m_apNumber[nCntLine][nCntPlace] = 0;
+		}
 	}
 }
 
@@ -72,13 +76,20 @@ HRESULT CRanking::Init(void)
 	//********************************************************
 	//ナンバー生成
 	//********************************************************
-	for (int nCnt = 0; nCnt < NUM_PLACE; nCnt++)
+	for (int nCntLine = 0; nCntLine < NUM_LINE; nCntLine++)
 	{
-		//オブジェクト生成
-		m_apNumber[nCnt] = CNumber::Create();
+		for (int nCntPlace = 0; nCntPlace < NUM_PLACE; nCntPlace++)
+		{
+			//スコアのロード
+			m_apNumber[nCntLine][nCntPlace]->Load();
 
-		//セットスコア
-		m_apNumber[nCnt]->SetScore(D3DXVECTOR3(0.0f,0.0f,0.0f),8,8);
+			//オブジェクト生成
+			m_apNumber[nCntLine][nCntPlace] = CNumber::Create();
+
+			//セットスコア
+			m_apNumber[nCntLine][nCntPlace]->SetScore(D3DXVECTOR3(350.0f + nCntPlace * 30.0f, 200.0f + nCntLine * 140.0f, 0.0f), 
+				nCntPlace, 0);
+		}
 	}
 
 	return S_OK;
@@ -106,10 +117,16 @@ void CRanking::Uninit(void)
 	//********************************************************
 	//ナンバー終了処理
 	//********************************************************
-	for (int nCnt = 0; nCnt < NUM_PLACE; nCnt++)
+	for (int nCntLine = 0; nCntLine < NUM_LINE; nCntLine++)
 	{
-		//オブジェクト終了	
-		m_apNumber[nCnt]->Uninit();
+		for (int nCntPlace = 0; nCntPlace < NUM_PLACE; nCntPlace++)
+		{
+			//スコアのアンロード
+			m_apNumber[nCntLine][nCntPlace]->Unload();
+
+			//オブジェクト終了	
+			m_apNumber[nCntLine][nCntPlace]->Uninit();
+		}
 	}
 }
 
@@ -120,13 +137,13 @@ void CRanking::Update(void)
 {
 	m_nCtr++;		//カウンター加算
 
-	if (m_nCtr >= 160)
-	{
-		//画面遷移
-		CManager::GetManager()->SetMode(CScene::MODE_TITLE);
+	//if (m_nCtr >= 200)
+	//{
+	//	//画面遷移
+	//	CManager::GetManager()->SetMode(CScene::MODE_TITLE);
 
-		m_nCtr = 0;		//カウンターリセット
-	}
+	//	m_nCtr = 0;		//カウンターリセット
+	//}
 }
 
 //=============================================================================
@@ -134,7 +151,17 @@ void CRanking::Update(void)
 //=============================================================================
 void CRanking::Draw(void)
 {
-
+	//********************************************************
+	//ナンバー描画処理
+	//********************************************************
+	for (int nCntLine = 0; nCntLine < NUM_LINE; nCntLine++)
+	{
+		for (int nCntPlace = 0; nCntPlace < NUM_PLACE; nCntPlace++)
+		{
+			//オブジェクト終了	
+			m_apNumber[nCntLine][nCntPlace]->Draw();
+		}
+	}
 }
 
 //=============================================================================
@@ -190,7 +217,7 @@ void CRanking::Save(void)
 //=============================================================================
 void CRanking::Sort(void)
 {
-	//スコア情報取得
+	////スコア情報取得
 	//int nScore = CScore::GetScore();	//スコア情報取得
 
 	//if (nScore > m_aData[NUM_LINE - 1])

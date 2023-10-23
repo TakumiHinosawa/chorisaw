@@ -82,7 +82,7 @@ void CTutorial::Update(void)
 {
 	m_nCtr++;		//ƒJƒEƒ“ƒ^[‰ÁŽZ
 
-	if (m_nCtr >= 100)
+	if (m_nCtr >= 1)
 	{
 		//‰æ–Ê‘JˆÚ
 		CManager::GetManager()->SetMode(CScene::MODE_GAME);

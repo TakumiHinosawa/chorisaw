@@ -169,6 +169,7 @@
     <ClCompile Include="objectX.cpp" />
     <ClCompile Include="playerX.cpp" />
     <ClCompile Include="ranking.cpp" />
+    <ClCompile Include="rankingnum.cpp" />
     <ClCompile Include="renderer.cpp" />
     <ClCompile Include="result.cpp" />
     <ClCompile Include="score.cpp" />
@@ -197,6 +198,7 @@
     <ClInclude Include="objectX.h" />
     <ClInclude Include="PlayerX.h" />
     <ClInclude Include="ranking.h" />
+    <ClInclude Include="rankingnum.h" />
     <ClInclude Include="renderer.h" />
     <ClInclude Include="result.h" />
     <ClInclude Include="score.h" />
