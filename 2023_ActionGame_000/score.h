@@ -38,10 +38,12 @@ public:
 	static CScore *Create(void);
 
 	void SetScore(void);
+	void SetScoreRanking(int nNum);
 	void AddScore(int nValue);
 	void SubScore(int nValue);
 	int GetScore(void);
 	void SaveScore(void);
+	void SetPosition(D3DXVECTOR3 pos);
 
 private:
 	int m_nScore;						//ÉXÉRÉA

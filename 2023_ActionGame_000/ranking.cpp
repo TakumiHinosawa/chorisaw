@@ -34,10 +34,7 @@ CRanking::CRanking()
 
 	for (int nCntLine = 0; nCntLine < NUM_LINE; nCntLine++)
 	{
-		for (int nCntPlace = 0; nCntPlace < NUM_PLACE; nCntPlace++)
-		{
-			m_apNumber[nCntLine][nCntPlace] = 0;
-		}
+		m_apScore[nCntLine] = 0;
 	}
 }
 
@@ -58,6 +55,7 @@ HRESULT CRanking::Init(void)
 	//テクスチャ読み込み
 	//********************************************************
 	m_pModeImage->Load(1);
+	CNumber::Load();
 
 	//背景生成
 	m_pModeImage = CModeImage::Create(1);
@@ -78,18 +76,29 @@ HRESULT CRanking::Init(void)
 	//********************************************************
 	for (int nCntLine = 0; nCntLine < NUM_LINE; nCntLine++)
 	{
-		for (int nCntPlace = 0; nCntPlace < NUM_PLACE; nCntPlace++)
-		{
-			//スコアのロード
-			m_apNumber[nCntLine][nCntPlace]->Load();
+		//オブジェクト生成
+		m_apScore[nCntLine] = CScore::Create();
 
-			//オブジェクト生成
-			m_apNumber[nCntLine][nCntPlace] = CNumber::Create();
+		//セットスコア
+		m_apScore[nCntLine]->SetScore();
 
-			//セットスコア
-			m_apNumber[nCntLine][nCntPlace]->SetScore(D3DXVECTOR3(350.0f + nCntPlace * 30.0f, 200.0f + nCntLine * 140.0f, 0.0f), 
-				nCntPlace, 0);
-		}
+		//位置設定処理
+		m_apScore[nCntLine]->SetPosition(D3DXVECTOR3(300.0f, 200.0f + nCntLine * 140.0f, 0.0f));
+	}
+
+	//ロード処理
+	Load();
+
+	//ソート処理
+	Sort();
+
+	//セーブ処理
+	Save();
+
+	for (int nCntLine = 0; nCntLine < NUM_LINE; nCntLine++)
+	{
+		//位置設定処理
+		m_apScore[nCntLine]->SetPosition(D3DXVECTOR3(300.0f, 200.0f + nCntLine * 140.0f, 0.0f));
 	}
 
 	return S_OK;
@@ -113,20 +122,15 @@ void CRanking::Uninit(void)
 	//テクスチャ破棄
 	//********************************************************
 	m_pModeImage->Unload();
+	CNumber::Unload();
 
 	//********************************************************
 	//ナンバー終了処理
 	//********************************************************
 	for (int nCntLine = 0; nCntLine < NUM_LINE; nCntLine++)
 	{
-		for (int nCntPlace = 0; nCntPlace < NUM_PLACE; nCntPlace++)
-		{
-			//スコアのアンロード
-			m_apNumber[nCntLine][nCntPlace]->Unload();
-
-			//オブジェクト終了	
-			m_apNumber[nCntLine][nCntPlace]->Uninit();
-		}
+		//オブジェクト終了	
+		m_apScore[nCntLine]->Uninit();
 	}
 }
 
@@ -137,13 +141,13 @@ void CRanking::Update(void)
 {
 	m_nCtr++;		//カウンター加算
 
-	//if (m_nCtr >= 200)
-	//{
-	//	//画面遷移
-	//	CManager::GetManager()->SetMode(CScene::MODE_TITLE);
+	if (m_nCtr >= 200)
+	{
+		//画面遷移
+		CManager::GetManager()->SetMode(CScene::MODE_TITLE);
 
-	//	m_nCtr = 0;		//カウンターリセット
-	//}
+		m_nCtr = 0;		//カウンターリセット
+	}
 }
 
 //=============================================================================
@@ -156,11 +160,8 @@ void CRanking::Draw(void)
 	//********************************************************
 	for (int nCntLine = 0; nCntLine < NUM_LINE; nCntLine++)
 	{
-		for (int nCntPlace = 0; nCntPlace < NUM_PLACE; nCntPlace++)
-		{
-			//オブジェクト終了	
-			m_apNumber[nCntLine][nCntPlace]->Draw();
-		}
+		//オブジェクト終了	
+		m_apScore[nCntLine]->Draw();
 	}
 }
 
@@ -172,7 +173,7 @@ void CRanking::Load(void)
 	FILE *pFile = NULL;
 
 	//ファイル作成
-	pFile = fopen("text\\ranking.txt", "r");
+	pFile = fopen("data\\text\\ranking.txt", "r");
 
 	if (pFile == NULL)
 	{//ファイルがなかった場合
@@ -196,7 +197,7 @@ void CRanking::Save(void)
 	FILE *pFile;
 
 	//ファイル作成
-	pFile = fopen("text\\ranking.txt", "w");
+	pFile = fopen("data\\text\\ranking.txt", "w");
 
 	if (pFile == NULL)
 	{//ファイルがなかった場合
@@ -217,13 +218,50 @@ void CRanking::Save(void)
 //=============================================================================
 void CRanking::Sort(void)
 {
-	////スコア情報取得
-	//int nScore = CScore::GetScore();	//スコア情報取得
+	{
+		//スコアの取得処理
+		int nScore = 0;
 
-	//if (nScore > m_aData[NUM_LINE - 1])
-	//{
-	//	m_aData[NUM_LINE - 1] = nScore;
-	//}
+		FILE *pFile;
+
+		//ファイル作成
+		pFile = fopen("data\\text\\score.txt", "r");
+
+		if (pFile == NULL)
+		{//ファイルがなかった場合
+			return;
+		}
+
+		fscanf(pFile, "%d", &nScore);
+
+		//ファイルを閉じる
+		fclose(pFile);
+
+		if (nScore > m_aData[NUM_LINE - 1])
+		{
+			m_aData[NUM_LINE - 1] = nScore;
+		}
+	}
+
+	//降順処理(ソート)
+	for (int nCnt1 = 0; nCnt1 < NUM_LINE - 1; nCnt1++)
+	{
+		for (int nCnt2 = nCnt1 + 1; nCnt2 < NUM_LINE; nCnt2++)
+		{
+			if (m_aData[nCnt1] < m_aData[nCnt2])
+			{
+				//一度別の変数にデータを確保してから上書きする
+				int nTemp = m_aData[nCnt1];
+				m_aData[nCnt1] = m_aData[nCnt2];
+				m_aData[nCnt2] = nTemp;
+			}
+		}
+	}
+
+	for (int nCnt = 0; nCnt < NUM_LINE; nCnt++)
+	{
+		m_apScore[nCnt]->SetScoreRanking(m_aData[nCnt]);
+	}
 }
 
 //=========================================================================================
@@ -247,3 +285,26 @@ CRanking *CRanking::Create(void)
 	//オブジェクト情報を返す
 	return pRanking;
 }
+
+//=========================================================================================
+//取得処理
+//=========================================================================================
+//int CRanking::GetScore(void)
+//{
+//	FILE *pFile = NULL;
+//
+//	//ファイル作成
+//	pFile = fopen("text\\score.txt", "r");
+//
+//	if (pFile == NULL)
+//	{//ファイルがなかった場合
+//		return;
+//	}
+//
+//	fscanf(pFile, "%d", &m_aData[0]);
+//
+//	//ファイルを閉じる
+//	fclose(pFile);
+//
+//	return m_aData[0];
+//}
