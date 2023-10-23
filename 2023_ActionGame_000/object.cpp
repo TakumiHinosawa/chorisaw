@@ -203,3 +203,8 @@ void CObject::Hit(void)
 {
 
 }
+
+//HRESULT CObject::Init(int nType)
+//{
+//	return S_OK;
+//}

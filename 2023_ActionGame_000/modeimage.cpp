@@ -60,7 +60,7 @@ HRESULT CModeImage::Load(int nType)
 	case 1:
 		//テクスチャの読み込み
 		D3DXCreateTextureFromFile(pDevice,
-			"data\\TEXTURE\\wood.jpg",
+			"data\\TEXTURE\\ranking.png",
 			&m_pTexture);
 		break;
 
@@ -118,7 +118,7 @@ HRESULT CModeImage::Init(int nType)
 
 	case 1:
 		//種類の設定
-		SetType(TYPE_RESULT);
+		SetType(TYPE_RANKING);
 		break;
 
 	case 2:
@@ -129,7 +129,7 @@ HRESULT CModeImage::Init(int nType)
 
 	//画像設定
 	m_pModeImage->Set(D3DXVECTOR3(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 0.0f),
-		D3DXVECTOR3(0.0f, 0.0f, 0.0f), 300.0f, 500.0f);
+		D3DXVECTOR3(0.0f, 0.0f, 0.0f), 360.0f, 650.0f);
 
 	return S_OK;
 }

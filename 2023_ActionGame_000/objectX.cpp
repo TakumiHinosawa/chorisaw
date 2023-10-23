@@ -339,8 +339,8 @@ void CObjectX::Update(void)
 	}
 	if (bUse == true)
 	{
-		m_rot.y -= 0.46f;
-		m_pos.y += 0.75f;
+		m_rot.y -= 0.76f;
+		m_pos.y += 0.89f;
 	}
 }
 

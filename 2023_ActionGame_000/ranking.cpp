@@ -1,3 +1,4 @@
+
 //=============================================================================
 //
 // ranking
@@ -13,6 +14,7 @@
 #include "modeimage.h"
 #include "score.h"
 #include <stdio.h>
+#include "number.h"
 
 //=============================================================================
 //コンストラクタ
@@ -22,11 +24,16 @@ CRanking::CRanking()
 	m_pos = D3DXVECTOR3(0.0f,0.0f,0.0f);		
 	m_nValue = 0;			
 	m_nScore = 0;			
-	m_nCounter = 0;			
+	m_nCounter = 0;		
+	m_nCtr = 0;
 
 	for (int nCnt = 0; nCnt < NUM_LINE; nCnt++)
 	{
 		m_aData[nCnt] = 0;
+	}
+	for (int nCnt = 0; nCnt < NUM_PLACE; nCnt++)
+	{
+		m_apNumber[nCnt] = 0;
 	}
 }
 
@@ -62,6 +69,18 @@ HRESULT CRanking::Init(void)
 		m_pModeImage->Init(1);
 	}
 
+	//********************************************************
+	//ナンバー生成
+	//********************************************************
+	for (int nCnt = 0; nCnt < NUM_PLACE; nCnt++)
+	{
+		//オブジェクト生成
+		m_apNumber[nCnt] = CNumber::Create();
+
+		//セットスコア
+		m_apNumber[nCnt]->SetScore(D3DXVECTOR3(0.0f,0.0f,0.0f),8,8);
+	}
+
 	return S_OK;
 }
 
@@ -83,6 +102,15 @@ void CRanking::Uninit(void)
 	//テクスチャ破棄
 	//********************************************************
 	m_pModeImage->Unload();
+
+	//********************************************************
+	//ナンバー終了処理
+	//********************************************************
+	for (int nCnt = 0; nCnt < NUM_PLACE; nCnt++)
+	{
+		//オブジェクト終了	
+		m_apNumber[nCnt]->Uninit();
+	}
 }
 
 //=============================================================================
@@ -90,13 +118,14 @@ void CRanking::Uninit(void)
 //=============================================================================
 void CRanking::Update(void)
 {
-	//キーボードの取得
-	CInputKeyboard *pInputKeyboard = CManager::GetManager()->GetInputKeyboard();
+	m_nCtr++;		//カウンター加算
 
-	if (pInputKeyboard->GetTrigger(DIK_RETURN) == true)
+	if (m_nCtr >= 160)
 	{
 		//画面遷移
 		CManager::GetManager()->SetMode(CScene::MODE_TITLE);
+
+		m_nCtr = 0;		//カウンターリセット
 	}
 }
 

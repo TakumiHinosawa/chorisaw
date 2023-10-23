@@ -29,7 +29,6 @@ class CBuilding;
 class CDebugProc;
 class CPlayerX;
 class CObject;
-class CTime;
 
 //*****************************************************************************************
 //ゲームクラス定義
@@ -47,7 +46,6 @@ public:
 	static CGame *Create(void);
 
 	static CPlayerX *GetPlayer(void);
-	static CTime *GetTime(void);
 	static CScore *GetScore(void);
 	static CCamera *GetCamera(void);
 	static CLight *GetLight(void);
@@ -60,7 +58,6 @@ private:
 	static CCamera *m_pCamera;
 	static CLight *m_pLight;
 	static CObjectX *m_pObjectX;
-	static CTime *m_pTime;
 	static CBuilding *m_apBuilding[NUM_BUILD];
 	int m_nCtr;
 };

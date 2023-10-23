@@ -17,7 +17,7 @@
 //=============================================================================
 CTutorial::CTutorial()
 {
-
+	m_nCtr = 0;
 }
 
 //=============================================================================
@@ -80,13 +80,14 @@ void CTutorial::Uninit(void)
 //=============================================================================
 void CTutorial::Update(void)
 {
-	//キーボードの取得
-	CInputKeyboard *pInputKeyboard = CManager::GetManager()->GetInputKeyboard();
+	m_nCtr++;		//カウンター加算
 
-	if (pInputKeyboard->GetTrigger(DIK_SPACE) == true)
+	if (m_nCtr >= 100)
 	{
 		//画面遷移
 		CManager::GetManager()->SetMode(CScene::MODE_GAME);
+
+		m_nCtr = 0;		//カウンターリセット
 	}
 }
 

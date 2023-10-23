@@ -28,6 +28,7 @@ public:
 		TYPE_TITLE,			//タイトル
 		TYPE_RESULT,		//リザルト
 		TYPE_TUTORIAL,		//チュートリアル
+		TYPE_RANKING,		//ランキング
 		TYPE_MAX
 	}TYPE;
 

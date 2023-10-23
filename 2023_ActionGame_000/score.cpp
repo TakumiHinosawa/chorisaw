@@ -189,7 +189,7 @@ void CScore::SaveScore(void)
 	FILE *pFile;
 
 	//ファイル作成
-	pFile = fopen("text\\score.txt", "w");
+	pFile = fopen("data\\text\\score.txt", "w");
 
 	if (pFile == NULL)
 	{//ファイルがなかった場合

@@ -174,16 +174,13 @@ void CCamera::Update(void)
 	m_posVDest.z = PlayerPos.z + cosf(m_rot.y) * -DIS;				//目的の視点にモデルの位置を代入(相対座標)
 	(m_posVDest - m_posV) * 0.1f;
 
-	float targetHeight = 80.0f; // カメラを引く高さ
+	float targetHeight = 0.0f; // カメラを引く高さ
 
 	if (PlayerPos.y > targetHeight)
 	{
-		// カメラを引くための補正値を計算
-		float cameraOffset = (PlayerPos.y - targetHeight) * 0.08f;
-
 		// カメラ位置を調整
-		m_posV.z -= cameraOffset;	// カメラ位置をY軸方向に補正
 		m_posR.y = PlayerPos.y - 50.0f;
+		m_posV.y = PlayerPos.y;
 	}
 
 	//カメラ追従処理

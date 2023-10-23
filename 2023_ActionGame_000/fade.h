@@ -1,41 +1,49 @@
 //=========================================================================================
 //
-//[tutorial.h]
-//Author:日野澤匠泉
+//	[fade.h]
+//	Author:日野澤匠泉
 //
 //=========================================================================================
-#ifndef _TUTORIAL_H_			//このマクロ定義がされなかったら
-#define _TUTORIAL_H_			//2重インクルード防止のマクロ定義する
-
-//*****************************************************************************************
-//前方宣言
-//*****************************************************************************************
-class CModeImage;
+#ifndef _FADE_H_	//この定義がされていなかったら
+#define _FADE_H_	//二重インクルード防止のマクロ定義をする
 
 //*****************************************************************************************
 //インクルード
 //*****************************************************************************************
+#include "main.h"
 #include "manager.h"
+#include "object2D.h"
 
 //*****************************************************************************************
-//クラス定義
+//フェードクラス
 //*****************************************************************************************
-class CTutorial : public CScene
+class CFade : public CObject2D
 {
 public:
+	//フェードの状態の列挙型
+	typedef enum
+	{
+		FADE_NONE = 0,		//何もしていない状態
+		FADE_IN,			//フェードイン状態
+		FADE_OUT,			//フェードアウト状態
+		FADE_MAX
 
-	CTutorial();
-	~CTutorial();
+	}FADE;
 
-	HRESULT Init(void);
+	CFade();
+	~CFade();
+
+	void Init(CScene::MODE modeNext);
 	void Uninit(void);
 	void Update(void);
 	void Draw(void);
-	static CTutorial *Create(void);
+	void Set(CScene::MODE modeNext);
+	FADE Get(void);
 
 private:
-	CModeImage *m_pModeImage;
-	int m_nCtr;
+	FADE m_fade;				//フェードの状態
+	CScene::MODE m_modeNext;	//次の画面(モード)
+	D3DXCOLOR m_colorFade;		//ポリゴン(フェード)の色
 };
 
 #endif

@@ -129,6 +129,9 @@
     <ClCompile Include="ranking.cpp">
       <Filter>ソース ファイル\MODE</Filter>
     </ClCompile>
+    <ClCompile Include="fade.cpp">
+      <Filter>ソース ファイル\MODE</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h">
@@ -201,6 +204,9 @@
       <Filter>ヘッダー ファイル\3D</Filter>
     </ClInclude>
     <ClInclude Include="ranking.h">
+      <Filter>ヘッダー ファイル\MODE</Filter>
+    </ClInclude>
+    <ClInclude Include="fade.h">
       <Filter>ヘッダー ファイル\MODE</Filter>
     </ClInclude>
   </ItemGroup>

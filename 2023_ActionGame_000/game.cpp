@@ -30,7 +30,6 @@ CScore *CGame::m_pScore = NULL;
 CCamera *CGame::m_pCamera = NULL;
 CLight *CGame::m_pLight = NULL;
 CObjectX *CGame::m_pObjectX = NULL;
-CTime *CGame::m_pTime = NULL;
 CBuilding *CGame::m_apBuilding[NUM_BUILD] = {};
 
 //=========================================================================================
@@ -188,19 +187,6 @@ HRESULT CGame::Init(void)
 	}
 
 	//********************************************************
-	//タイマー
-	//********************************************************
-	if (m_pTime == NULL)
-	{//使用されていないとき
-
-		//オブジェクトの情報を取得
-		m_pTime = CTime::Create();
-
-		//オブジェクト設定
-		m_pTime->SetTime();
-	}
-
-	//********************************************************
 	//サウンド
 	//********************************************************
 	//pSound->PlaySound(CSound::SOUND_LABEL_BGM_GAME);
@@ -230,22 +216,6 @@ void CGame::Uninit(void)
 
 		//初期化
 		m_pScore = NULL;
-	}
-
-	//********************************************************
-	//タイマー
-	//********************************************************
-	if (m_pTime != NULL)
-	{//使用されていたら
-
-		//タイマーの終了処理
-		m_pTime->Uninit();
-
-		//破棄
-		delete m_pTime;
-
-		//初期化
-		m_pTime = NULL;
 	}
 
 	//********************************************************
@@ -324,16 +294,6 @@ void CGame::Update(void)
 	}
 
 	//********************************************************
-	//タイマー
-	//********************************************************
-	if (m_pTime != NULL)
-	{//使用されていたら
-
-		//更新処理
-		m_pTime->Update();
-	}
-
-	//********************************************************
 	//カメラ
 	//********************************************************
 	if (m_pCamera != NULL)
@@ -343,23 +303,21 @@ void CGame::Update(void)
 		m_pCamera->Update();
 	}
 
-	//キーボードの取得
-	CInputKeyboard *pInputKeyboard = CManager::GetManager()->GetInputKeyboard();
-
-	if (pInputKeyboard->GetTrigger(DIK_RETURN) == true)
-	{
-		//画面遷移
-		CManager::GetManager()->SetMode(CScene::MODE_RESULT);
+	//プレイヤーの位置情報取得
+	D3DXVECTOR3 pos = m_pPlayerX->GetPosition();
+	
+	if (pos.y <= -700.0f)
+	{// プレイヤーが落ちた場合
 
 		if (m_pScore != NULL)
 		{//使用されていたら
 
-			// スコアの更新 ( 停止 )
-			m_pScore->AddScore(0);
-
 			//スコアの保存
 			m_pScore->SaveScore();
 		}
+
+		//画面遷移
+		CManager::GetManager()->SetMode(CScene::MODE_RANKING);
 	}
 }
 
@@ -411,14 +369,6 @@ CPlayerX *CGame::GetPlayer(void)
 CScore *CGame::GetScore(void)
 {
 	return m_pScore;
-}
-
-//=========================================================================================
-//スコア情報取得
-//=========================================================================================
-CTime *CGame::GetTime(void)
-{
-	return m_pTime;
 }
 
 //=========================================================================================
