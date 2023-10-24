@@ -164,6 +164,22 @@ void CCamera::Update(void)
 	//プレイヤーの位置情報取得
 	D3DXVECTOR3 PlayerPos = pPlayer->GetPosition();
 
+	float targetHeight = 0.0f;		// カメラを引く高さ
+
+	// 慣性係数（カメラがプレイヤーの高さを追従する速度）
+	float fInertiaFactor = 0.08f;
+
+	// プレイヤーが高さを超えたときに追従する高さ
+	float FTargetHeight = -200.0f;  
+
+	// プレイヤーのY座標がターゲット高さを超えた場合
+	if (PlayerPos.y > FTargetHeight)
+	{
+		// プレイヤーの高さ以下の場合、慣性を適用
+		m_posR.y += (PlayerPos.y - m_posR.y) * fInertiaFactor;
+		m_posV.y += (PlayerPos.y - m_posV.y) * fInertiaFactor;
+	}
+
 	//モデルの移動量を更新(減衰させる)
 	m_move.x += (0.0f - m_move.x) * 0.12f;
 	m_move.y += (0.0f - m_move.y) * 0.12f;
@@ -173,15 +189,6 @@ void CCamera::Update(void)
 	m_posVDest.x = PlayerPos.x + WIDTH + sinf(m_rot.y) * -DIS;		//目的の視点にモデルの位置を代入(相対座標)
 	m_posVDest.z = PlayerPos.z + cosf(m_rot.y) * -DIS;				//目的の視点にモデルの位置を代入(相対座標)
 	(m_posVDest - m_posV) * 0.1f;
-
-	float targetHeight = 0.0f; // カメラを引く高さ
-
-	if (PlayerPos.y > targetHeight)
-	{
-		// カメラ位置を調整
-		m_posR.y = PlayerPos.y - 50.0f;
-		m_posV.y = PlayerPos.y;
-	}
 
 	//カメラ追従処理
 	m_posV.x += (m_posVDest.x - m_posV.x) * 0.1f;	//視点にモデルの位置を代入(相対座標)

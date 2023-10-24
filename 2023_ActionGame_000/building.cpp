@@ -121,6 +121,10 @@ void CBuilding::SetType(TYPE type)
 	case TYPE_SKY:
 		CObjectX::ReloadObject("data\\MODEL\\sky.x");
 		break;
+
+	case TYPE_START:
+		CObjectX::ReloadObject("data\\MODEL\\start.x");
+		break;
 	}
 }
 

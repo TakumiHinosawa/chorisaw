@@ -26,6 +26,7 @@ public:
 		TYPE_WALL,			// 壁
 		TYPE_WALLPAPER,		// 壁紙
 		TYPE_SKY,			// 空
+		TYPE_START,			// スタート
 		TYPE_MAX
 	}TYPE;
 
