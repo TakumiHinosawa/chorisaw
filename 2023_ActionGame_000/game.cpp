@@ -224,6 +224,8 @@ HRESULT CGame::Init(void)
 		{ CBuilding::TYPE_WALLPAPER, 14400.0f,0.0f,80.0f },
 		{ CBuilding::TYPE_WALLPAPER, 17700.0f,0.0f,80.0f },
 		{ CBuilding::TYPE_WALLPAPER, 21700.0f,0.0f,80.0f },
+		{ CBuilding::TYPE_WALLPAPER, 25000.0f,0.0f,80.0f },
+		{ CBuilding::TYPE_WALLPAPER, 28300.0f,0.0f,80.0f },
 	};
 
 	for (int nCnt = 0; nCnt < NUM_BUILD; nCnt++)
@@ -366,13 +368,6 @@ void CGame::Update(void)
 
 		//更新処理
 		m_pCamera->Update();
-	}
-
-	if (m_pScore->GetScore() >= 1000)
-	{
-		m_pPlayerX->GetMove();
-
-
 	}
 
 	//プレイヤーの位置情報取得
