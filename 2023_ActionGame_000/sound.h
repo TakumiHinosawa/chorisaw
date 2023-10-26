@@ -23,11 +23,10 @@ public:
 	typedef enum
 	{
 		SOUND_LABEL_BGM_GAME = 0,	//ゲーム
-		SOUND_LABEL_SE_JUMP,		//射撃
-		SOUND_LABEL_SE_EXPLOSION,	//爆発
-		SOUND_LABEL_SE_DAMAGE,		//ダメージ
-		SOUND_LABEL_SE_777,			//当たり	
-		SOUND_LABEL_SE_HORYU,		//保留音
+		SOUND_LABEL_SE_JUMP,		//ジャンプ
+		SOUND_LABEL_SE_2NDJUNP,		//二段ジャンプ
+		SOUND_LABEL_SE_DOWN,		//ダウン
+		SOUND_LABEL_SE_TITLE,		//タイトル
 		SOUND_LABEL_MAX,
 	} SOUND_LABEL;
 

@@ -12,12 +12,11 @@
 //*****************************************************************************
 CSound::SOUNDINFO m_aSoundInfo[CSound::SOUND_LABEL_MAX] =
 {
-	{ "data/BGM/16.wav", -1 },					//ゲーム
-	{ "data/SE/se_jump_012.wav" , 0},			//ジャンプ
-	{ "data/SE/explosion.wav" ,0},				//爆発
-	{"data/SE/damage.wav" ,0},					//ダメージ
-	{"data/SE/garo_se05_gzanbaken.wav" ,0},		//当選
-	{"data/SE/free_sound2.wav",0}				//保留音
+	{ "data/BGM/jazz.wav", -1 },		//ゲーム
+	{ "data/SE/first.wav" , 0},			//ジャンプ
+	{ "data/SE/second.wav" , 0 },		//ジャンプ
+	{ "data/SE/down4.wav" , 0 },		//落下時
+	{ "data/SE/up.wav" , 0 },			//タイトル
 };
 
 //=============================================================================

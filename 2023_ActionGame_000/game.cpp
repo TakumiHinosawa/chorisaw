@@ -216,6 +216,36 @@ HRESULT CGame::Init(void)
 		{ CBuilding::TYPE_THIN, 32000.0f,50.0f,0.0f },
 		{ CBuilding::TYPE_THIN, 32400.0f,50.0f,0.0f },
 
+		{ CBuilding::TYPE_THIN, 32700.0f,0.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 33100.0f,150.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 33500.0f,0.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 33900.0f,50.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 34300.0f,150.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 34700.0f,200.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 35500.0f,0.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 35900.0f,50.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 36400.0f,50.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 36900.0f,100.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 37400.0f,150.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 37900.0f,0.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 38400.0f,50.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 38800.0f,150.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 39200.0f,200.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 39700.0f,-50.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 40000.0f,0.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 40300.0f,50.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 40700.0f,50.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 41000.0f,100.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 41300.0f,150.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 41700.0f,0.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 42000.0f,50.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 42400.0f,150.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 42800.0f,200.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 43200.0f,-50.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 43600.0f,0.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 44000.0f,50.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 44400.0f,50.0f,0.0f },
+
 		// 壁紙
 		{ CBuilding::TYPE_WALLPAPER, 2200.0f,0.0f,80.0f },
 		{ CBuilding::TYPE_WALLPAPER, 5500.0f,0.0f,80.0f },
@@ -256,7 +286,7 @@ HRESULT CGame::Init(void)
 	//********************************************************
 	//サウンド
 	//********************************************************
-	//pSound->PlaySound(CSound::SOUND_LABEL_BGM_GAME);
+	pSound->PlaySound(CSound::SOUND_LABEL_BGM_GAME);
 
 	return S_OK;
 }
@@ -375,6 +405,12 @@ void CGame::Update(void)
 	
 	if (pos.y <= -700.0f)
 	{// プレイヤーが落ちた場合
+
+		//サウンド情報取得
+		CSound *pSound = CManager::GetManager()->GetSound();
+
+		//サウンドの再生
+		pSound->PlaySound(CSound::SOUND_LABEL_SE_DOWN);
 
 		if (m_pScore != NULL)
 		{//使用されていたら

@@ -16,6 +16,7 @@
 #include "light.h"
 #include "game.h"
 #include "building.h"
+#include "sound.h"
 
 //=============================================================================
 //コンストラクタ
@@ -146,9 +147,15 @@ void CTitle::Update(void)
 	//キーボードの取得
 	CInputKeyboard *pInputKeyboard = CManager::GetManager()->GetInputKeyboard();
 
+	//サウンド情報取得
+	CSound *pSound = CManager::GetManager()->GetSound();
+
 	if (pInputKeyboard->GetTrigger(DIK_SPACE) == true)
 	{
 		bUse = true;
+
+		//ジャンプ音
+		pSound->PlaySound(CSound::SOUND_LABEL_SE_TITLE);
 	}
 	if (bUse == true)
 	{

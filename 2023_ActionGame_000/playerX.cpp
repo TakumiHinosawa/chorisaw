@@ -160,7 +160,7 @@ void CPlayerX::Controller(void)
 		m_JumpState = PLAYERJUMP_UP;
 
 		//ジャンプ音
-		pSound->PlaySound(CSound::SOUND_LABEL_SE_JUMP);
+		pSound->PlaySound(CSound::SOUND_LABEL_SE_2NDJUNP);
 	}
 	if (m_JumpState == PLAYERJUMP_UP)
 	{//ジャンプ中の時
