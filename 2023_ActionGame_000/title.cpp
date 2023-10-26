@@ -28,6 +28,7 @@ CTitle::CTitle()
 	m_pObjectX = NULL;
 	m_pLight = NULL;
 	m_nCtr = 0;
+	m_nTrans = 0;
 	bUse = false;
 }
 
@@ -150,6 +151,8 @@ void CTitle::Update(void)
 	//サウンド情報取得
 	CSound *pSound = CManager::GetManager()->GetSound();
 
+	m_nTrans++;
+
 	if (pInputKeyboard->GetTrigger(DIK_SPACE) == true)
 	{
 		bUse = true;
@@ -168,7 +171,13 @@ void CTitle::Update(void)
 
 		m_nCtr = 0;		//カウンター初期化
 	}
+	if (m_nTrans >= 350)
+	{
+		//画面遷移
+		CManager::GetManager()->SetMode(CScene::MODE_RANKING);
 
+		m_nTrans = 0;
+	}
 	//********************************************************
 	//ライトの更新処理
 	//********************************************************

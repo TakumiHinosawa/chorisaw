@@ -42,6 +42,7 @@ private:
 	CObjectX *m_pObjectX;
 	CLight *m_pLight;
 	int m_nCtr;
+	int m_nTrans;
 	bool bUse;
 };
 

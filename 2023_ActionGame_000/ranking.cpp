@@ -139,9 +139,17 @@ void CRanking::Uninit(void)
 //=============================================================================
 void CRanking::Update(void)
 {
+	//キーボードの取得
+	CInputKeyboard *pInputKeyboard = CManager::GetManager()->GetInputKeyboard();
+
 	m_nCtr++;		//カウンター加算
 
-	if (m_nCtr >= 200)
+	if (pInputKeyboard->GetTrigger(DIK_SPACE) == true)
+	{
+		//画面遷移
+		CManager::GetManager()->SetMode(CScene::MODE_TITLE);
+	}
+	if (m_nCtr >= 350)
 	{
 		//画面遷移
 		CManager::GetManager()->SetMode(CScene::MODE_TITLE);

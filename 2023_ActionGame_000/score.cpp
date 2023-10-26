@@ -121,19 +121,16 @@ void CScore::SetScore(void)
 {
 	int aTexU[NUM_PLACE];		//äeåÖÇÃêîílÇäiî[
 
-	aTexU[0] = m_nScore % 100000000 / 10000000;
-	aTexU[1] = m_nScore % 10000000 / 1000000;
-	aTexU[2] = m_nScore % 1000000 / 100000;
-	aTexU[3] = m_nScore % 100000 / 10000;
-	aTexU[4] = m_nScore % 10000 / 1000;
-	aTexU[5] = m_nScore % 1000 / 100;
-	aTexU[6] = m_nScore % 100 / 10;
-	aTexU[7] = m_nScore % 10;
+	aTexU[0] = m_nScore % 100000 / 10000;
+	aTexU[1] = m_nScore % 10000 / 1000;
+	aTexU[2] = m_nScore % 1000 / 100;
+	aTexU[3] = m_nScore % 100 / 10;
+	aTexU[4] = m_nScore % 10;
 
 	for (int nCnt = 0; nCnt < NUM_PLACE; nCnt++)
 	{
 		//ÉXÉRÉAÇÃê›íËèàóù
-		m_apNumber[nCnt]->SetScore(D3DXVECTOR3(600.0f,10.0f,0.0f), nCnt, aTexU[nCnt]);
+		m_apNumber[nCnt]->SetScore(D3DXVECTOR3(500.0f,10.0f,0.0f), nCnt, aTexU[nCnt]);
 	}
 }
 
@@ -146,14 +143,11 @@ void CScore::SetScoreRanking(int nNum)
 
 	m_nScore = nNum;
 
-	aTexU[0] = nNum % 100000000 / 10000000;
-	aTexU[1] = nNum % 10000000 / 1000000;
-	aTexU[2] = nNum % 1000000 / 100000;
-	aTexU[3] = nNum % 100000 / 10000;
-	aTexU[4] = nNum % 10000 / 1000;
-	aTexU[5] = nNum % 1000 / 100;
-	aTexU[6] = nNum % 100 / 10;
-	aTexU[7] = nNum % 10;
+	aTexU[0] = nNum % 100000 / 10000;
+	aTexU[1] = nNum % 10000 / 1000;
+	aTexU[2] = nNum % 1000 / 100;
+	aTexU[3] = nNum % 100 / 10;
+	aTexU[4] = nNum % 10;
 
 	for (int nCnt = 0; nCnt < NUM_PLACE; nCnt++)
 	{
@@ -171,14 +165,11 @@ void CScore::AddScore(int nValue)
 
 	m_nScore += nValue;
 
-	aTexU[0] = m_nScore % 100000000 / 10000000;
-	aTexU[1] = m_nScore % 10000000 / 1000000;
-	aTexU[2] = m_nScore % 1000000 / 100000;
-	aTexU[3] = m_nScore % 100000 / 10000;
-	aTexU[4] = m_nScore % 10000 / 1000;
-	aTexU[5] = m_nScore % 1000 / 100;
-	aTexU[6] = m_nScore % 100 / 10;
-	aTexU[7] = m_nScore % 10;
+	aTexU[0] = m_nScore % 100000 / 10000;
+	aTexU[1] = m_nScore % 10000 / 1000;
+	aTexU[2] = m_nScore % 1000 / 100;
+	aTexU[3] = m_nScore % 100 / 10;
+	aTexU[4] = m_nScore % 10;
 }
 
 //=========================================================================================
@@ -196,14 +187,11 @@ void CScore::SubScore(int nValue)
 
 	m_nScore -= nValue;
 
-	aTexU[0] = m_nScore % 100000000 / 10000000;
-	aTexU[1] = m_nScore % 10000000 / 1000000;
-	aTexU[2] = m_nScore % 1000000 / 100000;
-	aTexU[3] = m_nScore % 100000 / 10000;
-	aTexU[4] = m_nScore % 10000 / 1000;
-	aTexU[5] = m_nScore % 1000 / 100;
-	aTexU[6] = m_nScore % 100 / 10;
-	aTexU[7] = m_nScore % 10;
+	aTexU[0] = m_nScore % 100000 / 10000;
+	aTexU[1] = m_nScore % 10000 / 1000;
+	aTexU[2] = m_nScore % 1000 / 100;
+	aTexU[3] = m_nScore % 100 / 10;
+	aTexU[4] = m_nScore % 10;
 }
 
 //=========================================================================================
@@ -242,14 +230,11 @@ void CScore::SetPosition(D3DXVECTOR3 pos)
 {
 	int aTexU[NUM_PLACE];		//äeåÖÇÃêîílÇäiî[
 
-	aTexU[0] = m_nScore % 100000000 / 10000000;
-	aTexU[1] = m_nScore % 10000000 / 1000000;
-	aTexU[2] = m_nScore % 1000000 / 100000;
-	aTexU[3] = m_nScore % 100000 / 10000;
-	aTexU[4] = m_nScore % 10000 / 1000;
-	aTexU[5] = m_nScore % 1000 / 100;
-	aTexU[6] = m_nScore % 100 / 10;
-	aTexU[7] = m_nScore % 10;
+	aTexU[0] = m_nScore % 100000 / 10000;
+	aTexU[1] = m_nScore % 10000 / 1000;
+	aTexU[2] = m_nScore % 1000 / 100;
+	aTexU[3] = m_nScore % 100 / 10;
+	aTexU[4] = m_nScore % 10;
 
 	for (int nCnt = 0; nCnt < NUM_PLACE; nCnt++)
 	{
