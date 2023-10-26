@@ -174,6 +174,7 @@ HRESULT CGame::Init(void)
 		{ CBuilding::TYPE_NORMAL, 18300.0f,0.0f,0.0f },
 		{ CBuilding::TYPE_NORMAL, 18800.0f,50.0f,0.0f },
 		{ CBuilding::TYPE_NORMAL, 19300.0f,50.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 19800.0f,50.0f,0.0f },
 
 		// äKíiÅ@â∫ÇË
 		{ CBuilding::TYPE_THIN, 20000.0f,100.0f,0.0f },
@@ -222,6 +223,7 @@ HRESULT CGame::Init(void)
 		{ CBuilding::TYPE_NORMAL, 33900.0f,50.0f,0.0f },
 		{ CBuilding::TYPE_NORMAL, 34300.0f,150.0f,0.0f },
 		{ CBuilding::TYPE_NORMAL, 34700.0f,200.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 35100.0f,200.0f,0.0f },
 		{ CBuilding::TYPE_THIN, 35500.0f,0.0f,0.0f },
 		{ CBuilding::TYPE_NORMAL, 35900.0f,50.0f,0.0f },
 		{ CBuilding::TYPE_NORMAL, 36400.0f,50.0f,0.0f },
@@ -246,6 +248,35 @@ HRESULT CGame::Init(void)
 		{ CBuilding::TYPE_THIN, 44000.0f,50.0f,0.0f },
 		{ CBuilding::TYPE_NORMAL, 44400.0f,50.0f,0.0f },
 
+		{ CBuilding::TYPE_THIN, 44700.0f,0.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 45100.0f,150.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 45500.0f,0.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 45900.0f,50.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 46300.0f,150.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 46700.0f,200.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 47000.0f,50.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 47400.0f,50.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 47900.0f,100.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 48400.0f,150.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 48900.0f,0.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 49400.0f,50.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 49800.0f,150.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 50200.0f,200.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 50700.0f,-50.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 51000.0f,0.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 51300.0f,50.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 51700.0f,50.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 52000.0f,100.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 52300.0f,150.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 52700.0f,0.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 53000.0f,50.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 53400.0f,150.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 53800.0f,200.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 54200.0f,-50.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 54600.0f,0.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 55000.0f,50.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 55400.0f,50.0f,0.0f },
+
 		// ï«éÜ
 		{ CBuilding::TYPE_WALLPAPER, 2200.0f,0.0f,80.0f },
 		{ CBuilding::TYPE_WALLPAPER, 5500.0f,0.0f,80.0f },
@@ -256,6 +287,10 @@ HRESULT CGame::Init(void)
 		{ CBuilding::TYPE_WALLPAPER, 21700.0f,0.0f,80.0f },
 		{ CBuilding::TYPE_WALLPAPER, 25000.0f,0.0f,80.0f },
 		{ CBuilding::TYPE_WALLPAPER, 28300.0f,0.0f,80.0f },
+		{ CBuilding::TYPE_WALLPAPER, 31600.0f,0.0f,80.0f },
+		{ CBuilding::TYPE_WALLPAPER, 34900.0f,0.0f,80.0f },
+		{ CBuilding::TYPE_WALLPAPER, 37200.0f,0.0f,80.0f },
+		{ CBuilding::TYPE_WALLPAPER, 40500.0f,0.0f,80.0f },
 	};
 
 	for (int nCnt = 0; nCnt < NUM_BUILD; nCnt++)

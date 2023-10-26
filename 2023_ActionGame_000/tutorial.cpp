@@ -80,14 +80,13 @@ void CTutorial::Uninit(void)
 //=============================================================================
 void CTutorial::Update(void)
 {
-	m_nCtr++;		//カウンター加算
+	//キーボードへのポインタ取得
+	CInputKeyboard *pInputKeyboard = CManager::GetManager()->GetInputKeyboard();
 
-	if (m_nCtr >= 1)
+	if (pInputKeyboard->GetTrigger(DIK_SPACE) == true)
 	{
 		//画面遷移
 		CManager::GetManager()->SetMode(CScene::MODE_GAME);
-
-		m_nCtr = 0;		//カウンターリセット
 	}
 }
 

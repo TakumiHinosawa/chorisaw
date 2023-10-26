@@ -221,7 +221,7 @@ void CScore::SaveScore(void)
 		return;
 	}
 
-	fprintf(pFile, "%d", m_nScore);
+	fprintf(pFile, "%d", m_nScore - 2);
 
 	//ƒtƒ@ƒCƒ‹‚ð•Â‚¶‚é
 	fclose(pFile);

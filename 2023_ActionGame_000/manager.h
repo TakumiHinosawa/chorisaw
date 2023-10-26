@@ -15,6 +15,7 @@ class CInputController;
 class CRenderer;
 class CDebugProc;
 class CSound;
+class CBuilding;
 
 //*****************************************************************************************
 //インクルード

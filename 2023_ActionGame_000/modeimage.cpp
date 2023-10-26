@@ -70,6 +70,13 @@ HRESULT CModeImage::Load(int nType)
 			"data\\TEXTURE\\tutorial.png",
 			&m_pTexture);
 		break;
+
+	case 3:
+		//テクスチャの読み込み
+		D3DXCreateTextureFromFile(pDevice,
+			"data\\TEXTURE\\tutorial.png",
+			&m_pTexture);
+		break;
 	}
 	return S_OK;
 }
@@ -124,6 +131,11 @@ HRESULT CModeImage::Init(int nType)
 	case 2:
 		//種類の設定
 		SetType(TYPE_TUTORIAL);
+		break;
+
+	case 3:
+		//種類の設定
+		SetType(TYPE_RESULT);
 		break;
 	}
 

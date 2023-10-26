@@ -20,6 +20,7 @@
 #include "object.h"
 #include "tutorial.h"
 #include "ranking.h"
+#include "building.h"
 
 //*****************************************************************************************
 //Ã“Iƒƒ“ƒo•Ï”

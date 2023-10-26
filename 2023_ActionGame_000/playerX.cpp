@@ -365,7 +365,7 @@ void CPlayerX::CollisionBuilding(void)
 					{//　上の判定
 						
 						//位置更新
-						PlayerPos.y = BuildingPosition.y + BuildingVtxMax.y - vtxMin.y;
+						PlayerPos.y = BuildingPosition.y + BuildingVtxMax.y - vtxMin.y + 0.001f;
 
 						//重力初期化
 						PlayerMove.y = 0.0f;
