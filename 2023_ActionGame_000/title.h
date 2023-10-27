@@ -44,6 +44,7 @@ private:
 	int m_nCtr;
 	int m_nTrans;
 	bool bUse;
+	bool bSound;
 };
 
 #endif

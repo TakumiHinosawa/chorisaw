@@ -30,6 +30,7 @@ CTitle::CTitle()
 	m_nCtr = 0;
 	m_nTrans = 0;
 	bUse = false;
+	bSound = false;
 }
 
 //=============================================================================
@@ -153,9 +154,10 @@ void CTitle::Update(void)
 
 	m_nTrans++;
 
-	if (pInputKeyboard->GetTrigger(DIK_SPACE) == true)
+	if (pInputKeyboard->GetTrigger(DIK_SPACE) == true && bSound == false)
 	{
 		bUse = true;
+		bSound = true;
 
 		//ƒWƒƒƒ“ƒv‰¹
 		pSound->PlaySound(CSound::SOUND_LABEL_SE_TITLE);
