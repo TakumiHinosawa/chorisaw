@@ -24,6 +24,7 @@ CScore::CScore()
 	m_nScore = 0;
 	m_nValue = 0;
 	m_nCtr = 0;
+	m_Dist = 0;
 	m_pos = D3DXVECTOR3( 0.0f,0.0f,0.0f );
 
 	for (int nCnt = 0; nCnt < NUM_PLACE; nCnt++)
@@ -175,34 +176,53 @@ void CScore::AddScore(int nValue)
 	aTexU[3] = m_nScore % 100 / 10;
 	aTexU[4] = m_nScore % 10;
 
-	if (m_nScore >= 1000)
+	if (m_nScore > 1000 && m_Dist == 0)
 	{
 		pSound->PlaySound(CSound::SOUND_LABEL_SE_1000M);
+
+		m_Dist = 1;
 	}
-	if (m_nScore >= 1000)
+	if (m_nScore > 2000 && m_Dist == 1)
 	{
 		pSound->PlaySound(CSound::SOUND_LABEL_SE_2000M);
-	}if (m_nScore >= 2000)
+
+		m_Dist = 2;
+	}
+	if (m_nScore > 3000 && m_Dist == 2)
 	{
 		pSound->PlaySound(CSound::SOUND_LABEL_SE_3000M);
-	}if (m_nScore >= 3000)
+
+		m_Dist = 3;
+	}
+	if (m_nScore > 4000 && m_Dist == 3)
 	{
 		pSound->PlaySound(CSound::SOUND_LABEL_SE_4000M);
-	}if (m_nScore >= 4000)
+
+		m_Dist = 4;
+	}
+	if (m_nScore > 5000 && m_Dist == 4)
 	{
 		pSound->PlaySound(CSound::SOUND_LABEL_SE_5000M);
-	}if (m_nScore >= 5000)
+
+		m_Dist = 5;
+	}
+	if (m_nScore > 6000 && m_Dist == 5)
 	{
 		pSound->PlaySound(CSound::SOUND_LABEL_SE_6000M);
-	}if (m_nScore >= 6000)
+
+		m_Dist = 6;
+	}
+	if (m_nScore > 7000 && m_Dist == 6)
 	{
 		pSound->PlaySound(CSound::SOUND_LABEL_SE_7000M);
-	}if (m_nScore >= 7000)
+
+		m_Dist = 7;
+	}
+	if (m_nScore > 8000 && m_Dist == 7)
 	{
 		pSound->PlaySound(CSound::SOUND_LABEL_SE_8000M);
-	}if (m_nScore >= 8000)
-	{
-		pSound->PlaySound(CSound::SOUND_LABEL_SE_1000M);
+
+		m_Dist = 8;
 	}
 }
 

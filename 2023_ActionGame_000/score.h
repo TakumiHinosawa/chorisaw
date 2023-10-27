@@ -51,6 +51,7 @@ private:
 	int m_nCtr;							//カウンター
 	D3DXVECTOR3 m_pos;					//位置情報
 	CNumber *m_apNumber[NUM_PLACE];		//数字情報
+	int m_Dist;
 };
 
 #endif
