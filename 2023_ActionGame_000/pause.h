@@ -1,49 +1,43 @@
 //=========================================================================================
 //
-//	[fade.h]
-//	Author:日野澤匠泉
+//	ポーズ処理
+//	Author:日野澤匠泉	[pause.h]
 //
 //=========================================================================================
-#ifndef _FADE_H_	//この定義がされていなかったら
-#define _FADE_H_	//二重インクルード防止のマクロ定義をする
+#ifndef _PAUSE_H_                  //このマクロ定義がされてなかったら
+#define _PAUSE_H_                  //2重インクルード防止のマクロを定義する
 
 //*****************************************************************************************
 //インクルード
 //*****************************************************************************************
-#include "main.h"
-#include "manager.h"
 #include "object2D.h"
 
 //*****************************************************************************************
-//フェードクラス
+//ポーズクラス
 //*****************************************************************************************
-class CFade : public CObject2D
+class CPause : public CObject2D
 {
 public:
-	//フェードの状態の列挙型
+	//ポーズメニュー
 	typedef enum
 	{
-		FADE_NONE = 0,		//何もしていない状態
-		FADE_IN,			//フェードイン状態
-		FADE_OUT,			//フェードアウト状態
-		FADE_MAX
+		PAUSE_MENU_CONTINUE = 0,   //コンティニュー
+		PAUSE_MENU_RETRY,          //リトライ
+		PAUSE_MENU_QUIT,           //終了
+		PAUSE_MENU_MAX
+	}PAUSE_MENU;
 
-	}FADE;
-
-	CFade();
-	~CFade();
-
-	void Init(CScene::MODE modeNext);
+	CPause();
+	~CPause();
+	HRESULT Init(void);
 	void Uninit(void);
 	void Update(void);
 	void Draw(void);
-	void Set(CScene::MODE modeNext);
-	FADE Get(void);
+	static CPause *Create(void);
 
 private:
-	FADE m_fade;				//フェードの状態
-	CScene::MODE m_modeNext;	//次の画面(モード)
-	D3DXCOLOR m_colorFade;		//ポリゴン(フェード)の色
+	int m_nPauseMenu;	//ポーズメニュー
+	bool m_bPause;		//ポーズが使用されているかどうか	
 };
 
 #endif

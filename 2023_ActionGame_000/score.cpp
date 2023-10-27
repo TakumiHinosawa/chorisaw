@@ -13,6 +13,7 @@
 #include "object2d.h"
 #include "manager.h"
 #include "input.h"
+#include "sound.h"
 #include <stdio.h>
 
 //=========================================================================================
@@ -161,6 +162,9 @@ void CScore::SetScoreRanking(int nNum)
 //=========================================================================================
 void CScore::AddScore(int nValue)
 {
+	//サウンド情報取得
+	CSound *pSound = CManager::GetManager()->GetSound();
+
 	int aTexU[NUM_PLACE];		//各桁の数値を格納
 
 	m_nScore += nValue;
@@ -170,6 +174,36 @@ void CScore::AddScore(int nValue)
 	aTexU[2] = m_nScore % 1000 / 100;
 	aTexU[3] = m_nScore % 100 / 10;
 	aTexU[4] = m_nScore % 10;
+
+	if (m_nScore >= 1000)
+	{
+		pSound->PlaySound(CSound::SOUND_LABEL_SE_1000M);
+	}
+	if (m_nScore >= 1000)
+	{
+		pSound->PlaySound(CSound::SOUND_LABEL_SE_2000M);
+	}if (m_nScore >= 2000)
+	{
+		pSound->PlaySound(CSound::SOUND_LABEL_SE_3000M);
+	}if (m_nScore >= 3000)
+	{
+		pSound->PlaySound(CSound::SOUND_LABEL_SE_4000M);
+	}if (m_nScore >= 4000)
+	{
+		pSound->PlaySound(CSound::SOUND_LABEL_SE_5000M);
+	}if (m_nScore >= 5000)
+	{
+		pSound->PlaySound(CSound::SOUND_LABEL_SE_6000M);
+	}if (m_nScore >= 6000)
+	{
+		pSound->PlaySound(CSound::SOUND_LABEL_SE_7000M);
+	}if (m_nScore >= 7000)
+	{
+		pSound->PlaySound(CSound::SOUND_LABEL_SE_8000M);
+	}if (m_nScore >= 8000)
+	{
+		pSound->PlaySound(CSound::SOUND_LABEL_SE_1000M);
+	}
 }
 
 //=========================================================================================

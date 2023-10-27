@@ -15,6 +15,7 @@
 #include "score.h"
 #include <stdio.h>
 #include "number.h"
+#include "sound.h"
 
 //=============================================================================
 //コンストラクタ
@@ -86,6 +87,14 @@ HRESULT CRanking::Init(void)
 		m_apScore[nCntLine]->SetPosition(D3DXVECTOR3(300.0f, 200.0f + nCntLine * 140.0f, 0.0f));
 	}
 
+	//サウンド情報取得
+	CSound *pSound = CManager::GetManager()->GetSound();
+
+	pSound->PlaySound(CSound::SOUND_LABEL_SE_RANKING);
+
+#ifdef _DEBUG
+
+#else
 	//ロード処理
 	Load();
 
@@ -94,6 +103,7 @@ HRESULT CRanking::Init(void)
 
 	//セーブ処理
 	Save();
+#endif
 
 	for (int nCntLine = 0; nCntLine < NUM_LINE; nCntLine++)
 	{

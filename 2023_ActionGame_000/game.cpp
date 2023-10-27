@@ -108,8 +108,6 @@ HRESULT CGame::Init(void)
 	//********************************************************
 	//建物 配置
 	//********************************************************
-
-	//建物配置の構造体定義
 	struct SBuildingInfo
 	{
 		CBuilding::TYPE mType;
@@ -277,6 +275,64 @@ HRESULT CGame::Init(void)
 		{ CBuilding::TYPE_THIN, 55000.0f,50.0f,0.0f },
 		{ CBuilding::TYPE_THIN, 55400.0f,50.0f,0.0f },
 
+		{ CBuilding::TYPE_THIN, 55700.0f,0.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 56100.0f,150.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 56500.0f,0.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 56900.0f,50.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 57300.0f,150.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 57700.0f,200.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 58000.0f,50.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 58400.0f,50.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 58900.0f,100.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 59400.0f,150.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 59900.0f,0.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 60400.0f,50.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 60800.0f,150.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 61200.0f,200.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 61700.0f,-50.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 62000.0f,0.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 62300.0f,50.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 62700.0f,50.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 63000.0f,100.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 63300.0f,150.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 63700.0f,0.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 64000.0f,50.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 64400.0f,150.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 64800.0f,200.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 65200.0f,-50.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 65600.0f,0.0f,0.0f },
+		{ CBuilding::TYPE_NORMAL, 66000.0f,50.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 66400.0f,50.0f,0.0f },
+
+		{ CBuilding::TYPE_THIN, 66700.0f,0.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 67100.0f,150.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 67500.0f,0.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 67900.0f,50.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 68300.0f,150.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 68700.0f,200.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 69000.0f,50.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 69400.0f,50.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 69900.0f,100.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 70400.0f,150.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 70900.0f,0.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 71400.0f,50.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 71800.0f,150.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 72200.0f,200.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 72700.0f,-50.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 73000.0f,0.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 73300.0f,50.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 73700.0f,50.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 74000.0f,100.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 74300.0f,150.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 74700.0f,0.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 75000.0f,50.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 75400.0f,150.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 75800.0f,200.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 76200.0f,-50.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 76600.0f,0.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 77000.0f,50.0f,0.0f },
+		{ CBuilding::TYPE_THIN, 77400.0f,50.0f,0.0f },
+
 		// 壁紙
 		{ CBuilding::TYPE_WALLPAPER, 2200.0f,0.0f,80.0f },
 		{ CBuilding::TYPE_WALLPAPER, 5500.0f,0.0f,80.0f },
@@ -291,6 +347,16 @@ HRESULT CGame::Init(void)
 		{ CBuilding::TYPE_WALLPAPER, 34900.0f,0.0f,80.0f },
 		{ CBuilding::TYPE_WALLPAPER, 37200.0f,0.0f,80.0f },
 		{ CBuilding::TYPE_WALLPAPER, 40500.0f,0.0f,80.0f },
+		{ CBuilding::TYPE_WALLPAPER, 43800.0f,0.0f,80.0f },
+		{ CBuilding::TYPE_WALLPAPER, 47100.0f,0.0f,80.0f },
+		{ CBuilding::TYPE_WALLPAPER, 50400.0f,0.0f,80.0f },
+		{ CBuilding::TYPE_WALLPAPER, 53700.0f,0.0f,80.0f },
+		{ CBuilding::TYPE_WALLPAPER, 54100.0f,0.0f,80.0f },
+		{ CBuilding::TYPE_WALLPAPER, 57400.0f,0.0f,80.0f },
+		{ CBuilding::TYPE_WALLPAPER, 60700.0f,0.0f,80.0f },
+		{ CBuilding::TYPE_WALLPAPER, 64000.0f,0.0f,80.0f },
+		{ CBuilding::TYPE_WALLPAPER, 67300.0f,0.0f,80.0f },
+		{ CBuilding::TYPE_WALLPAPER, 70600.0f,0.0f,80.0f },
 	};
 
 	for (int nCnt = 0; nCnt < NUM_BUILD; nCnt++)

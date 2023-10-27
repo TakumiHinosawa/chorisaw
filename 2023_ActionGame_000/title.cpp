@@ -159,12 +159,13 @@ void CTitle::Update(void)
 
 		//ƒWƒƒƒ“ƒv‰¹
 		pSound->PlaySound(CSound::SOUND_LABEL_SE_TITLE);
+		pSound->PlaySound(CSound::SOUND_LABEL_SE_SPACE);
 	}
 	if (bUse == true)
 	{
 		m_nCtr++;
 	}
-	if (m_nCtr > 100)
+	if (m_nCtr > 150)
 	{
 		//‰æ–Ê‘JˆÚ
 		CManager::GetManager()->SetMode(CScene::MODE_TUTORIAL);

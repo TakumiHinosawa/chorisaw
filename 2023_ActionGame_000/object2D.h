@@ -38,7 +38,6 @@ public:
 	D3DXVECTOR3 GetOldPosition(void);
 	void SetOldPosition(D3DXVECTOR3 pos);
 	void SetColor(int nType);
-	void Sort(int aData[4],int nScore, int aTexU[8]);
 
 protected:
 	D3DXVECTOR3 m_pos;			//ˆÊ’u
