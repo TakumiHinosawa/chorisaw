@@ -224,6 +224,30 @@ void CScore::AddScore(int nValue)
 
 		m_Dist = 8;
 	}
+	if (m_nScore > 9000 && m_Dist == 8)
+	{
+		pSound->PlaySound(CSound::SOUND_LABEL_SE_9000M);
+
+		m_Dist = 9;
+	}
+	if (m_nScore > 10000 && m_Dist == 9)
+	{
+		pSound->PlaySound(CSound::SOUND_LABEL_SE_10000M);
+
+		m_Dist = 10;
+	}
+	if (m_nScore > 15000 && m_Dist == 10)
+	{
+		pSound->PlaySound(CSound::SOUND_LABEL_SE_15000M);
+
+		m_Dist = 11;
+	}
+	if (m_nScore > 20000 && m_Dist == 11)
+	{
+		pSound->PlaySound(CSound::SOUND_LABEL_SE_20000M);
+
+		m_Dist = 12;
+	}
 }
 
 //=========================================================================================

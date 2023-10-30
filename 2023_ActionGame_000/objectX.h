@@ -80,6 +80,7 @@ private:
 	DWORD m_dwSizeFVF;	//頂点フォーマットのサイズ
 	BYTE *m_pVtxBuff;		//頂点バッファのポインタ
 	bool bUse;
+	bool bSwitch;
 };
 
 #endif

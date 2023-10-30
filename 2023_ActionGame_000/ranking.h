@@ -51,6 +51,7 @@ private:
 	int m_aData[NUM_LINE];	//ランキングデータ格納用
 	int m_nCtr;				//遷移カウンター
 	CScore *m_apScore[NUM_LINE];		//数字情報
+	bool bUse;
 };
 
 #endif

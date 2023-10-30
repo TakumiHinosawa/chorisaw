@@ -11,6 +11,7 @@
 #include "tutorial.h"
 #include "modeimage.h"
 #include "input.h"
+#include "sound.h"
 
 //=============================================================================
 //コンストラクタ
@@ -83,10 +84,14 @@ void CTutorial::Update(void)
 	//キーボードへのポインタ取得
 	CInputKeyboard *pInputKeyboard = CManager::GetManager()->GetInputKeyboard();
 
+	//サウンド情報取得
+	CSound *pSound = CManager::GetManager()->GetSound();
+
 	if (pInputKeyboard->GetTrigger(DIK_SPACE) == true)
 	{
 		//画面遷移
 		CManager::GetManager()->SetMode(CScene::MODE_GAME);
+		pSound->PlaySound(CSound::SOUND_LABEL_SE_TRANSITION);
 	}
 }
 

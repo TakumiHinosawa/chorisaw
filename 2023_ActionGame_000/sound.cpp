@@ -27,6 +27,12 @@ CSound::SOUNDINFO m_aSoundInfo[CSound::SOUND_LABEL_MAX] =
 	{ "data/se/6000m.wav" , 0 },
 	{ "data/se/7000m.wav" , 0 },
 	{ "data/se/8000m.wav" , 0 },
+	{ "data/se/9000m.wav" , 0 },
+	{ "data/se/10000m.wav" , 0 },
+	{ "data/se/15000m.wav" , 0 },
+	{ "data/se/20000m.wav" , 0 },
+	{ "data/se/transition.wav" , 0 },
+	{ "data/BGM/titlebgm.wav", -1 },			
 };
 
 //=============================================================================

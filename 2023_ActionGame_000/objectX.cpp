@@ -41,6 +41,7 @@ CObjectX::CObjectX()
 	m_pVtxBuff = NULL;		
 
 	bUse = false;
+	bSwitch = false;
 }
 	
 //=========================================================================================
@@ -333,9 +334,10 @@ void CObjectX::Update(void)
 	//キーボードの取得
 	CInputKeyboard *pInputKeyboard = CManager::GetManager()->GetInputKeyboard();
 
-	if (pInputKeyboard->GetTrigger(DIK_SPACE) == true)
+	if (pInputKeyboard->GetTrigger(DIK_SPACE) == true && bSwitch == false)
 	{
 		bUse = true;
+		bSwitch = true;
 	}
 	if (bUse == true)
 	{

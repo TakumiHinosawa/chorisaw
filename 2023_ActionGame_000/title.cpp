@@ -46,6 +46,9 @@ CTitle::~CTitle()
 //=============================================================================
 HRESULT CTitle::Init(void)
 {
+	//サウンド情報取得
+	CSound *pSound = CManager::GetManager()->GetSound();
+
 	//********************************************************
 	//カメラの生成・初期化
 	//********************************************************
@@ -95,6 +98,8 @@ HRESULT CTitle::Init(void)
 		//初期化処理
 		m_pModeImage->Init(0);
 	}
+
+	pSound->PlaySound(CSound::SOUND_LABEL_BGM_TITLE);
 
 	return S_OK;
 }
@@ -171,13 +176,15 @@ void CTitle::Update(void)
 	{
 		//画面遷移
 		CManager::GetManager()->SetMode(CScene::MODE_TUTORIAL);
+		pSound->PlaySound(CSound::SOUND_LABEL_SE_TRANSITION);
 
 		m_nCtr = 0;		//カウンター初期化
 	}
-	if (m_nTrans >= 350)
+	if (m_nTrans >= 550)
 	{
 		//画面遷移
 		CManager::GetManager()->SetMode(CScene::MODE_RANKING);
+		pSound->PlaySound(CSound::SOUND_LABEL_SE_TRANSITION);
 
 		m_nTrans = 0;
 	}

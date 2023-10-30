@@ -510,9 +510,6 @@ void CGame::Update(void)
 		//サウンド情報取得
 		CSound *pSound = CManager::GetManager()->GetSound();
 
-		//サウンドの再生
-		pSound->PlaySound(CSound::SOUND_LABEL_SE_DOWN);
-
 		if (m_pScore != NULL)
 		{//使用されていたら
 
@@ -522,6 +519,9 @@ void CGame::Update(void)
 
 		//画面遷移
 		CManager::GetManager()->SetMode(CScene::MODE_RANKING);
+
+		//サウンドの再生
+		pSound->PlaySound(CSound::SOUND_LABEL_SE_TRANSITION);
 	}
 }
 

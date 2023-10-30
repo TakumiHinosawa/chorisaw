@@ -37,6 +37,8 @@ CRanking::CRanking()
 	{
 		m_apScore[nCntLine] = 0;
 	}
+
+	bUse = false;
 }
 
 //=============================================================================
@@ -152,19 +154,27 @@ void CRanking::Update(void)
 	//キーボードの取得
 	CInputKeyboard *pInputKeyboard = CManager::GetManager()->GetInputKeyboard();
 
+	//サウンド情報取得
+	CSound *pSound = CManager::GetManager()->GetSound();
+
 	m_nCtr++;		//カウンター加算
 
-	if (pInputKeyboard->GetTrigger(DIK_SPACE) == true)
+	if (pInputKeyboard->GetTrigger(DIK_SPACE) == true && bUse == false)
 	{
 		//画面遷移
 		CManager::GetManager()->SetMode(CScene::MODE_TITLE);
+		pSound->PlaySound(CSound::SOUND_LABEL_SE_TRANSITION);
+
+		bUse = true;
 	}
 	if (m_nCtr >= 350)
 	{
 		//画面遷移
 		CManager::GetManager()->SetMode(CScene::MODE_TITLE);
+		pSound->PlaySound(CSound::SOUND_LABEL_SE_TRANSITION);
 
 		m_nCtr = 0;		//カウンターリセット
+		bUse = true;
 	}
 }
 
