@@ -38,6 +38,8 @@ CRanking::CRanking()
 		m_apScore[nCntLine] = 0;
 	}
 
+	m_pMyScore = NULL;				//自分の記録
+
 	bUse = false;
 }
 
@@ -88,6 +90,11 @@ HRESULT CRanking::Init(void)
 		//位置設定処理
 		m_apScore[nCntLine]->SetPosition(D3DXVECTOR3(300.0f, 200.0f + nCntLine * 140.0f, 0.0f));
 	}
+
+	m_pMyScore = CScore::Create();
+	m_pMyScore->LoadScore();
+	m_pMyScore->SetScore();
+	m_pMyScore->SetPosition(D3DXVECTOR3(850.0f,430.0f,0.0f));
 
 	//サウンド情報取得
 	CSound *pSound = CManager::GetManager()->GetSound();
@@ -144,6 +151,8 @@ void CRanking::Uninit(void)
 		//オブジェクト終了	
 		m_apScore[nCntLine]->Uninit();
 	}
+
+	m_pMyScore->Uninit();
 }
 
 //=============================================================================
@@ -191,6 +200,8 @@ void CRanking::Draw(void)
 		//オブジェクト終了	
 		m_apScore[nCntLine]->Draw();
 	}
+
+	m_pMyScore->Draw();
 }
 
 //=============================================================================

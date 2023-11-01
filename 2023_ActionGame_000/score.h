@@ -43,6 +43,7 @@ public:
 	void SubScore(int nValue);
 	int GetScore(void);
 	void SaveScore(void);
+	void LoadScore(void);
 	void SetPosition(D3DXVECTOR3 pos);
 
 private:
